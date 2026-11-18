@@ -1,0 +1,57 @@
+// ══════════════════════════════════════════════════════════
+// CSS Reset
+// ══════════════════════════════════════════════════════════
+
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'breakpoints' as *;
+
+html {
+  @include font(0.625rem, 0.625rem, 400);
+
+  @media (max-width: $laptop) {
+    @include font(0.5rem, 0.5rem, 400);
+  }
+
+  @media (max-width: $tablet) {
+    @include font(0.625rem, 0.625rem, 400);
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  min-width: 32rem;
+  margin: 0 auto;
+  font-family: $finlandica-text;
+  background-color: $blue-900;
+  color: $white;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+body,
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+button {
+  font-family: $finlandica-text;
+}
+
+main {
+  position: relative;
+  flex-grow: 1;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}

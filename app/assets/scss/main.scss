@@ -1,0 +1,31 @@
+// ══════════════════════════════════════════════════════════
+// Main SCSS — точка входа
+// ══════════════════════════════════════════════════════════
+
+@use 'variables' as *;
+@use 'reset';
+@use 'typography';
+
+html {
+  scroll-padding-top: 4.5rem; // компенсация fixed header для smooth-scroll
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 0.1rem;
+  height: 0.1rem;
+  margin: -0.1rem;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+// Tablet utility — hide on desktop, show on tablet/mobile
+.tablet {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: block;
+  }
+}

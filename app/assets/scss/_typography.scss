@@ -1,0 +1,53 @@
+// ══════════════════════════════════════════════════════════
+// @font-face — self-hosted project fonts
+// ══════════════════════════════════════════════════════════
+
+@font-face {
+  font-family: "Jost";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Jost Bold"),
+    url("../fonts/Jost-Bold.woff2") format("woff2"),
+    url("../fonts/Jost-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Finlandica Text";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Finlandica Text Medium"),
+    url("../fonts/FinlandicaText-Medium.woff2") format("woff2"),
+    url("../fonts/FinlandicaText-Medium.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Finlandica Text";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 600;
+  src: local("Finlandica Text SemiBold"),
+    url("../fonts/FinlandicaText-SemiBold.woff2") format("woff2"),
+    url("../fonts/FinlandicaText-SemiBold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Finlandica Text";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+  src: local("Finlandica Text Bold"),
+    url("../fonts/FinlandicaText-Bold.woff2") format("woff2"),
+    url("../fonts/FinlandicaText-Bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Golos Text";
+  font-display: swap;
+  font-style: normal;
+  font-weight: 500;
+  src: local("Golos Text Medium"),
+    url("../fonts/GolosText-Medium.woff2") format("woff2"),
+    url("../fonts/GolosText-Medium.woff") format("woff");
+}
