@@ -1,8 +1,8 @@
 export default {
   site: {
-    title: 'Мой сайт',
-    description: 'Современный статический сайт на Nuxt 3',
-    keywords: ['nuxt', 'vue', 'ssg', 'template'],
+    title: 'Мастер-классы со звездами фигурного катания',
+    description: 'Лужники, Южный спортивный центр',
+    keywords: [],
     url: 'https://example.com',
     ogImage: '/images/favicons/favicon.svg',
   },

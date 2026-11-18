@@ -35,43 +35,56 @@ const props = defineProps({
     />
 
     <Container>
-      <Image
-        class="dummy__figure"
-        src="/images/hero/figurist.png"
-        alt="Фигуристка выполняет элемент на льду"
-        loading="eager"
-        fetchpriority="high"
-      />
+      <Logos class="dummy__logos" :items="props.logos" />
 
-      <div class="dummy__header">
-        <Logos :items="props.logos" />
-        <p class="dummy__date">{{ props.date }}</p>
-      </div>
+      <div class="dummy__stage">
+        <Image
+          class="dummy__figure"
+          src="/images/hero/figurist.png"
+          alt="Figure skater"
+          loading="eager"
+          fetchpriority="high"
+        />
 
-      <div class="dummy__main">
-        <h1 id="dummy-title" class="dummy__title">{{ props.title }}</h1>
-        <FreeEntry :label="props.entry.label" :address="props.entry.address" />
-      </div>
+        <div class="dummy__main">
+          <h1 id="dummy-title" class="dummy__title">{{ props.title }}</h1>
+          <p class="dummy__date">{{ props.date }}</p>
+          <FreeEntry :label="props.entry.label" :address="props.entry.address" />
+        </div>
 
-      <div class="dummy__details">
-        <p class="dummy__description">{{ props.description }}</p>
-        <div class="dummy__portal">
-          <p>
-            {{ props.portal.lead }}
-            <a :href="props.portal.href" target="_blank" rel="noreferrer">
-              {{ props.portal.linkText }}
-            </a>
-          </p>
+        <div class="dummy__details">
+          <p class="dummy__description">{{ props.description }}</p>
+          <div class="dummy__portal">
+            <p>
+              {{ props.portal.lead }}
+              <a :href="props.portal.href" target="_blank" rel="noreferrer">
+                {{ props.portal.linkText }}
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </Container>
+
+    <Image
+      class="dummy__mobile-decor"
+      src="/images/hero/mobile-decor.svg"
+      alt=""
+      :width="204"
+      :height="204"
+      loading="eager"
+      aria-hidden="true"
+    />
   </section>
 </template>
 
 <style lang="scss">
 .dummy {
+  --dummy-reference-height: 76rem;
+  --dummy-stage-shift: max(0rem, calc((100vh - var(--dummy-reference-height)) / 3));
+
   position: relative;
-  min-height: max(100vh, 99.4rem);
+  min-height: max(100vh, calc(99.4rem + var(--dummy-stage-shift)));
   overflow: hidden;
   background: radial-gradient(ellipse at center, $white 35%, #e1ebf4 100%);
   color: $blue-900;
@@ -97,21 +110,17 @@ const props = defineProps({
     }
   }
 
-  &__header {
+  &__logos {
     position: relative;
-    z-index: 1;
-    display: flex;
-    min-height: 4.4rem;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.4rem;
-    padding-top: 8.8rem;
+    z-index: 4;
+    margin-top: 8.8rem;
   }
 
   &__date {
     position: absolute;
-    top: 9.2rem;
-    right: 0;
+    top: -7.6rem;
+    left: calc(100% + 0.9rem);
+    right: auto;
     width: 45.5rem;
     margin: 0;
     font-family: $finlandica-text;
@@ -186,7 +195,7 @@ const props = defineProps({
   &__figure {
     position: absolute;
     z-index: 0;
-    top: 3.4rem;
+    top: -13.4rem;
     left: calc(50% + 0.7rem);
     display: block;
     width: auto;
@@ -216,6 +225,8 @@ const props = defineProps({
     }
   }
 
+  &__mobile-decor { display: none; }
+
   @media (max-width: $laptop) {
     &__date {
       width: auto;
@@ -243,87 +254,107 @@ const props = defineProps({
   }
 
   @media (max-width: $tablet) {
-    min-height: max(100vh, 90rem);
+    --dummy-stage-shift: 0rem;
 
-    &__header {
-      display: block;
-      padding-top: 4rem;
+    min-height: max(100vh, 73.5rem);
+
+    &__logos {
+      width: 100%;
+      max-width: 50rem;
+      justify-content: flex-start;
+      gap: 2.4rem;
+      margin-top: 6rem;
     }
+
+    &__logos .logos__item { flex: 0 0 auto; }
+
+    &__logos .logos__image {
+      width: auto;
+      height: 2.4rem;
+      max-width: none;
+    }
+
+    &__stage { margin-top: 3.8rem; }
 
     &__date {
       position: static;
-      margin-top: 2.4rem;
+      width: auto;
+      margin: 2.8rem 0 1rem;
+      font-size: 1.6rem;
       text-align: left;
-      white-space: normal;
+      white-space: nowrap;
     }
 
     &__main {
-      width: min(100%, 70rem);
-      margin-top: 5.6rem;
+      width: min(100%, 64rem);
+      margin-top: 0;
     }
 
     &__title {
-      font-size: clamp(5.2rem, 8vw, 7.2rem);
+      margin-bottom: 0;
+      font-size: clamp(3.6rem, 5.3vw, 4.8rem);
+      letter-spacing: 0.124rem;
+      line-height: 0.95;
     }
 
     &__details {
       align-items: flex-start;
       flex-direction: column;
-      gap: 2.4rem;
-      margin-top: 4.2rem;
+      gap: 3rem;
+      margin-top: 1.6rem;
+      max-width: 50rem;
     }
 
     &__description,
     &__portal {
       flex: 0 1 auto;
-      max-width: 56rem;
+      width: 100%;
+      max-width: 50rem;
     }
 
-    &__figure {
-      top: 18rem;
-      height: 62rem;
+    &__description { font-size: 1.6rem; }
+
+    &__portal {
+      min-height: 0;
+      padding: 1.6rem 2rem;
+      border-radius: 2.2rem;
+      font-size: 1.6rem;
+    }
+
+    &__figure,
+    &__corner { display: none; }
+
+    &__mobile-decor {
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 20.4rem;
+      height: 20.4rem;
+      pointer-events: none;
     }
   }
 
   @media (max-width: $mobile) {
-    min-height: max(100vh, 90rem);
-    padding-bottom: 4.8rem;
+    &__details { margin-top: 1.6rem; }
+  }
+}
 
-    &__header { padding-top: 3.2rem; }
+@media (min-width: $tablet) and (min-height: 47.5rem) {
+  .dummy__stage { transform: translateY(var(--dummy-stage-shift)); }
+}
 
-    &__date {
-      margin-top: 2.4rem;
-      font-size: 1.8rem;
-    }
+@media (min-width: $tablet) and (max-width: $laptop) {
+  .dummy {
+    --dummy-reference-height: 95rem;
+  }
+}
 
-    &__main { margin-top: 4.4rem; }
-
-    &__title {
-      margin-bottom: 2.4rem;
-      font-size: clamp(4.2rem, 11vw, 5.8rem);
-      letter-spacing: 0.05rem;
-    }
-
-    &__details { margin-top: 3.2rem; }
-
-    &__description { font-size: 1.8rem; }
-
-    &__portal {
-      width: 100%;
-      min-height: 8.8rem;
-      padding: 2rem 2.4rem;
-      font-size: 1.6rem;
-    }
-
-    &__figure {
-      top: 25rem;
-      height: 56rem;
-    }
-
-    &__corner {
-      width: 8.4rem;
-      height: 8.5rem;
-    }
+@media (max-width: $tablet) {
+  .dummy {
+    --dummy-reference-height: 76rem;
+    --dummy-stage-shift: 0rem;
   }
 }
 </style>

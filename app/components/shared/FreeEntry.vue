@@ -49,10 +49,10 @@ const props = defineProps({
     p { margin: 0; }
   }
 
-  @media (max-width: $mobile) {
+  @media (max-width: $tablet) {
     align-items: flex-start;
     flex-direction: column;
-    gap: 1.4rem;
+    gap: 1.2rem;
   }
 }
 </style>
