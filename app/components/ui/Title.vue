@@ -24,14 +24,15 @@ defineProps({
   text-transform: uppercase;
   text-align: left;
   margin: 0;
-
-  &--white { color: $white; }
-  &--pale { color: $blue-50; }
-
+  &--white {
+    color: $white;
+  }
+  &--pale {
+    color: $blue-50;
+  }
   @media (max-width: $tablet) {
     font-size: 4rem;
   }
-
   @media (max-width: $mobile) {
     font-size: 3.6rem;
   }

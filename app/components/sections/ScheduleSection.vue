@@ -44,12 +44,20 @@ const props = defineProps({
   overflow: visible;
   background: $blue-50;
   overflow: hidden;
-
   &__container {
     position: relative;
     overflow: visible;
+    @media (max-width: $tablet) {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0 2.8rem;
+      box-sizing: border-box;
+    }
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
   }
-
   &__decor {
     position: absolute;
     z-index: 0;
@@ -61,28 +69,45 @@ const props = defineProps({
     max-width: none;
     transform: translateY(-50%);
     pointer-events: none;
+    @media (max-width: $tablet) {
+      right: -18rem;
+      width: 64rem;
+      height: 64rem;
+    }
+    @media (max-width: $mobile) {
+      top: 45%;
+      right: -24rem;
+      width: 48rem;
+      height: 48rem;
+    }
   }
-
   &__content {
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 4.4rem;
+    @media (max-width: $mobile) {
+      gap: 3.2rem;
+    }
   }
-
   &__list {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
   }
-
   &__item {
     display: flex;
     align-items: center;
     gap: 1.8rem;
+    @media (max-width: $tablet) {
+      align-items: flex-start;
+    }
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: 1.2rem;
+    }
   }
-
   &__date-time {
     display: flex;
     width: 25.2rem;
@@ -91,8 +116,18 @@ const props = defineProps({
     gap: 1.2rem;
     color: $blue-700;
     white-space: nowrap;
+    @media (max-width: $tablet) {
+      width: 22rem;
+      flex-basis: 22rem;
+      flex-wrap: wrap;
+      row-gap: 0.6rem;
+    }
+    @media (max-width: $mobile) {
+      width: auto;
+      flex: 0 0 auto;
+      flex-wrap: nowrap;
+    }
   }
-
   &__date {
     margin: 0;
     font-family: $jost;
@@ -102,7 +137,6 @@ const props = defineProps({
     line-height: 1;
     text-transform: uppercase;
   }
-
   &__time {
     margin: 0;
     font-family: $finlandica-text;
@@ -110,7 +144,6 @@ const props = defineProps({
     font-weight: 500;
     line-height: 1.1;
   }
-
   &__name {
     display: inline-flex;
     min-height: 5.2rem;
@@ -124,85 +157,11 @@ const props = defineProps({
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.1;
-  }
-
-  @media (max-width: $tablet) {
-    padding: 9rem 0 11rem;
-  }
-
-  &__container {
-    @media (max-width: $tablet) {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      padding: 0 2.8rem;
-      box-sizing: border-box;
-    }
-  }
-
-  &__item {
-    @media (max-width: $tablet) {
-      align-items: flex-start;
-    }
-  }
-
-  &__date-time {
-    @media (max-width: $tablet) {
-      width: 22rem;
-      flex-basis: 22rem;
-      flex-wrap: wrap;
-      row-gap: 0.6rem;
-    }
-  }
-
-  &__name {
     @media (max-width: $tablet) {
       min-width: 0;
       padding: 1.4rem 2.2rem;
       font-size: 1.8rem;
     }
-  }
-
-  &__decor {
-    @media (max-width: $tablet) {
-      right: -18rem;
-      width: 64rem;
-      height: 64rem;
-    }
-  }
-
-  @media (max-width: $mobile) {
-    padding: 7rem 0 9rem;
-  }
-
-  &__container {
-    @media (max-width: $mobile) {
-      padding: 0 2rem;
-    }
-  }
-
-  &__content {
-    @media (max-width: $mobile) {
-      gap: 3.2rem;
-    }
-  }
-
-  &__item {
-    @media (max-width: $mobile) {
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-  }
-
-  &__date-time {
-    @media (max-width: $mobile) {
-      width: auto;
-      flex: 0 0 auto;
-      flex-wrap: nowrap;
-    }
-  }
-
-  &__name {
     @media (max-width: $mobile) {
       width: 100%;
       min-height: 0;
@@ -210,14 +169,11 @@ const props = defineProps({
       border-radius: 2.8rem;
     }
   }
-
-  &__decor {
-    @media (max-width: $mobile) {
-      top: 45%;
-      right: -24rem;
-      width: 48rem;
-      height: 48rem;
-    }
+  @media (max-width: $tablet) {
+    padding: 9rem 0 11rem;
+  }
+  @media (max-width: $mobile) {
+    padding: 7rem 0 9rem;
   }
 }
 </style>

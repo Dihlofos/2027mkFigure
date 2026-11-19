@@ -10,6 +10,7 @@
 - For horizontal carousels, make the scroll track full-bleed to the viewport edge; put horizontal padding on the heading and slides, not the outer container. Hide the native scrollbar while keeping native touch scrolling.
 - Always render project images through the `<Image />` component; do not use raw `<img>` tags in feature/component templates.
 - Keep media queries inside the rules for the elements they change. Do not gather selectors into a breakpoint-wide block at the end of a component stylesheet.
+- Declare each selector only once per component stylesheet. Put its base declarations and all media queries in that one rule; merge repeated media queries for the same selector.
 - Limit SCSS selector nesting that uses `&` to one level. Do not nest BEM child selectors inside another `&` selector.
 - Do not run `npx nuxi build`, `npx nuxi prepare`, or `npx nuxi generate` unless explicitly requested. Use `npm run dev` for a functional check when needed.
 - Use `rem` for CSS dimensions and font sizes. `border-radius` is the sole unit exception and may follow the source design's unit.

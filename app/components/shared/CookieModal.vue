@@ -47,21 +47,18 @@ function accept() {
   padding: 1.6rem 2rem;
   max-width: 48.6rem;
   border-radius: 1rem;
-
   @media (max-width: $tablet) {
     max-width: 90%;
     right: auto;
     left: 50%;
     transform: translateX(-50%);
   }
-
   @media (max-width: $mobile) {
     left: 1rem;
     right: 1rem;
     max-width: unset;
     transform: none;
   }
-
   &__close {
     flex-grow: 0;
     flex-shrink: 0;
@@ -77,16 +74,13 @@ function accept() {
     padding: 0.6rem 1.6rem;
     border: none;
     cursor: pointer;
-
     @media (max-width: $mobile) {
       padding: 2rem;
     }
   }
-
   &__text {
     color: $black;
     max-width: 37.4rem;
-
     p {
       color: $black;
       font-family: $finlandica-text;
@@ -95,7 +89,6 @@ function accept() {
       font-weight: 400;
       line-height: 1.3;
       margin: 0;
-
       @media (max-width: $mobile) {
         font-size: 1.4rem;
         line-height: 1.1;

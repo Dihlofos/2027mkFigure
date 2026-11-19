@@ -47,7 +47,6 @@ defineProps({
 .footer {
   padding: 12rem 0;
   background: $blue-700;
-
   &__container {
     @media (max-width: $laptop) {
       width: 100%;
@@ -56,37 +55,45 @@ defineProps({
       padding: 0 4rem;
       box-sizing: border-box;
     }
-
     @media (max-width: $tablet) {
       padding: 0 2.8rem;
     }
-
     @media (max-width: $mobile) {
       padding: 0 2rem;
     }
   }
-
   &__layout {
     display: grid;
     grid-template-columns: minmax(0, 1fr) 55.6rem;
     gap: 4.8rem;
+    @media (max-width: $tablet) {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 5rem;
+    }
+    @media (max-width: $mobile) {
+      gap: 4rem;
+    }
   }
-
   &__contacts {
     display: grid;
     grid-template-columns: max-content minmax(0, 1fr);
     align-content: start;
     column-gap: 2.7rem;
     row-gap: 2.8rem;
+    @media (max-width: $tablet) {
+      gap: 2.4rem;
+    }
+    @media (max-width: $mobile) {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 2.8rem;
+    }
   }
-
   &__contact {
     display: flex;
     min-width: 0;
     flex-direction: column;
     gap: 1.4rem;
   }
-
   &__contact-label {
     margin: 0;
     color: $blue-50;
@@ -95,7 +102,6 @@ defineProps({
     font-weight: 500;
     line-height: 1.3;
   }
-
   &__documents-title {
     margin: 0 0 1.2rem;
     color: $blue-50;
@@ -104,7 +110,6 @@ defineProps({
     font-weight: 500;
     line-height: 1.3;
   }
-
   &__contact-email {
     color: $white;
     font-family: $finlandica-text;
@@ -113,27 +118,28 @@ defineProps({
     line-height: 1.08;
     text-decoration: none;
     white-space: nowrap;
-
-    &:hover { text-decoration: underline; }
-
+    &:hover {
+      text-decoration: underline;
+    }
     &:focus-visible {
       outline: 0.2rem solid $white;
       outline-offset: 0.3rem;
     }
+    @media (max-width: $mobile) {
+      font-size: 2.4rem;
+    }
   }
-
   &__document-list {
     margin: 0;
     padding: 0;
     list-style: none;
   }
-
   &__document-item {
     border-bottom: 0.1rem solid rgba($white, 0.16);
-
-    &:last-child { border-bottom: 0; }
+    &:last-child {
+      border-bottom: 0;
+    }
   }
-
   &__document-link {
     display: flex;
     min-height: 6.4rem;
@@ -142,15 +148,17 @@ defineProps({
     padding: 1.2rem 0;
     color: $white;
     text-decoration: none;
-
-    &:hover .footer__document-label { text-decoration: underline; }
-
+    &:hover .footer__document-label {
+      text-decoration: underline;
+    }
     &:focus-visible {
       outline: 0.2rem solid $white;
       outline-offset: 0.2rem;
     }
+    @media (max-width: $mobile) {
+      gap: 1.2rem;
+    }
   }
-
   &__document-icon {
     display: inline-flex;
     width: 4rem;
@@ -161,7 +169,6 @@ defineProps({
     border-radius: 2rem;
     background: rgba($white, 0.16);
   }
-
   &__document-label {
     flex: 1 1 auto;
     color: $white;
@@ -170,64 +177,22 @@ defineProps({
     font-weight: 600;
     line-height: 1.2;
   }
-
   &__document-arrow {
     display: block;
     width: 1.2rem;
     height: 1.4rem;
     flex: 0 0 1.2rem;
   }
-
   @media (max-width: $tablet) {
     padding: 9rem 0;
   }
-
-  &__layout {
-    @media (max-width: $tablet) {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 5rem;
-    }
-  }
-
-  &__contacts {
-    @media (max-width: $tablet) {
-      gap: 2.4rem;
-    }
-  }
-
   &__documents {
     @media (max-width: $tablet) {
       max-width: 65rem;
     }
   }
-
   @media (max-width: $mobile) {
     padding: 7rem 0;
-  }
-
-  &__layout {
-    @media (max-width: $mobile) {
-      gap: 4rem;
-    }
-  }
-
-  &__contacts {
-    @media (max-width: $mobile) {
-      grid-template-columns: minmax(0, 1fr);
-      row-gap: 2.8rem;
-    }
-  }
-
-  &__contact-email {
-    @media (max-width: $mobile) {
-      font-size: 2.4rem;
-    }
-  }
-
-  &__document-link {
-    @media (max-width: $mobile) {
-      gap: 1.2rem;
-    }
   }
 }
 </style>

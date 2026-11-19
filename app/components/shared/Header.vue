@@ -38,39 +38,32 @@ onUnmounted(() => {
   background: transparent;
   transition: padding 250ms ease;
   padding: 2rem 0;
-
   @media (max-width: $tablet) {
     background: transparent;
     padding: 0;
   }
-
   &--scrolled {
     padding: 1rem 0;
-
     @media (max-width: $tablet) {
       padding: 0;
       backdrop-filter: none;
       box-shadow: none;
     }
   }
-
   &__inner {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-
     @media (max-width: $tablet) {
       min-height: 0;
     }
   }
-
   &__logo {
     text-decoration: none;
     color: $blue-900;
     font-weight: 700;
     font-size: 1.6rem;
-
     &:hover {
       color: $blue-700;
     }

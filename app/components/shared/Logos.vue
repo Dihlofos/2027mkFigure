@@ -35,14 +35,12 @@ const props = defineProps({
   margin: 0;
   padding: 0;
   list-style: none;
-
   &__item {
     display: flex;
     flex: 0 1 auto;
     align-items: center;
     min-width: 0;
   }
-
   &__image {
     display: block;
     width: auto;
@@ -50,18 +48,15 @@ const props = defineProps({
     height: auto;
     object-fit: contain;
   }
-
   &__link {
     display: inline-flex;
     align-items: center;
     border-radius: 0.4rem;
-
     &:focus-visible {
       outline: 0.2rem solid $blue-700;
       outline-offset: 0.3rem;
     }
   }
-
   @media (max-width: $mobile) {
     justify-content: flex-start;
     flex-wrap: wrap;

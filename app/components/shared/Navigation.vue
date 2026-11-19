@@ -37,7 +37,6 @@ function closeMobile() {
 .nav {
   display: flex;
   justify-content: center;
-
   &__toggle {
     display: none;
     border: none;
@@ -45,14 +44,10 @@ function closeMobile() {
     cursor: pointer;
     padding: 0;
     line-height: 0;
-
     &:focus-visible {
       outline: 0.2rem solid $blue-700;
       outline-offset: 0.2rem;
     }
-
-
-
     @media (max-width: $tablet) {
       display: flex;
       align-items: center;
@@ -61,18 +56,14 @@ function closeMobile() {
       top: 1.2rem;
       right: 1.6rem;
       z-index: 1030;
-
       .nav--open & {
         top: 1.6rem;
         right: 2rem;
-
       }
     }
   }
-
   &__overlay {
     display: contents;
-
     @media (max-width: $tablet) {
       display: flex;
       flex-direction: column;
@@ -86,7 +77,6 @@ function closeMobile() {
       transition: opacity 300ms ease;
       overflow-y: auto;
     }
-
     .nav--open & {
       @media (max-width: $tablet) {
         opacity: 1;
@@ -94,7 +84,6 @@ function closeMobile() {
       }
     }
   }
-
   &__list {
     display: flex;
     gap: 0.2rem;
@@ -104,7 +93,6 @@ function closeMobile() {
     padding: 0.8rem;
     border-radius: 5rem;
     background: $blue-50;
-
     @media (max-width: $tablet) {
       flex-direction: column;
       gap: 2.4rem;
@@ -114,7 +102,6 @@ function closeMobile() {
       background: transparent;
     }
   }
-
   &__link {
     display: block;
     padding: 1.5rem 1.6rem;
@@ -126,17 +113,14 @@ function closeMobile() {
     color: $blue-700;
     transition: background-color 150ms ease, color 150ms ease;
     text-decoration: none;
-
     &:hover,
     &--active {
       background: $white;
     }
-
     &:focus-visible {
       outline: 0.2rem solid $blue-700;
       outline-offset: 0.2rem;
     }
-
     @media (max-width: $tablet) {
       font-size: 2.4rem;
       font-weight: 600;

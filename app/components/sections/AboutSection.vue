@@ -44,12 +44,17 @@ const props = defineProps({
   background: $blue-50;
   color: $white;
   overflow: hidden;
-
   &__container {
     position: relative;
     overflow: visible;
+    @media (max-width: $tablet) {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0;
+      box-sizing: border-box;
+    }
   }
-
   &__decor {
     position: absolute;
     z-index: 0;
@@ -60,22 +65,42 @@ const props = defineProps({
     height: 97.3rem;
     max-width: none;
     pointer-events: none;
+    @media (max-width: $tablet) {
+      top: -5rem;
+      right: -7rem;
+      width: 82rem;
+      height: auto;
+    }
   }
-
   &__content {
     position: relative;
     z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 4.4rem;
+    @media (max-width: $tablet) {
+      gap: 4rem;
+    }
   }
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 2.4rem;
+    @media (max-width: $tablet) {
+      display: flex;
+      gap: 2rem;
+      padding: 0 2.8rem 0 0;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    @media (max-width: $mobile) {
+      gap: 1.6rem;
+      padding-right: 2rem;
+    }
   }
-
   &__card {
     display: flex;
     min-width: 0;
@@ -84,8 +109,13 @@ const props = defineProps({
     padding: 2.8rem 2.4rem;
     border-radius: 2rem;
     background: $blue-700;
+    @media (max-width: $tablet) {
+      flex: 0 0 min(32rem, 78vw);
+    }
+    @media (max-width: $mobile) {
+      flex-basis: min(31rem, 84vw);
+    }
   }
-
   &__card-title {
     margin: 0 0 1.2rem;
     padding: 0 0 1.2rem;
@@ -98,7 +128,6 @@ const props = defineProps({
     line-height: 1;
     text-transform: uppercase;
   }
-
   &__card-text {
     margin: 0;
     padding: 0;
@@ -108,99 +137,32 @@ const props = defineProps({
     font-weight: 500;
     line-height: 1.1;
   }
-
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;
   }
-
-  &__container {
-    @media (max-width: $tablet) {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      padding: 0;
-      box-sizing: border-box;
-    }
-  }
-
-  &__content {
-    @media (max-width: $tablet) {
-      gap: 4rem;
-    }
-  }
-
   &__heading {
     @media (max-width: $tablet) {
       padding: 0 2.8rem;
     }
-  }
-
-  &__cards {
-    @media (max-width: $tablet) {
-      display: flex;
-      gap: 2rem;
-      padding: 0 2.8rem 0 0;
-      overflow-x: auto;
-      overscroll-behavior-x: contain;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-      -webkit-overflow-scrolling: touch;
-
-    }
-  }
-
-  &__cards::-webkit-scrollbar {
-    @media (max-width: $tablet) { display: none; }
-  }
-
-  &__card:first-child {
-    @media (max-width: $tablet) {
-      margin-left: 2.8rem;
-    }
-  }
-
-  &__card {
-    @media (max-width: $tablet) {
-      flex: 0 0 min(32rem, 78vw);
-    }
-  }
-
-  &__decor {
-    @media (max-width: $tablet) {
-      top: -5rem;
-      right: -7rem;
-      width: 82rem;
-      height: auto;
-    }
-  }
-
-  @media (max-width: $mobile) {
-    padding: 7rem 0 9rem;
-  }
-
-  &__heading {
     @media (max-width: $mobile) {
       padding: 0 2rem;
     }
   }
-
-  &__cards {
-    @media (max-width: $mobile) {
-      gap: 1.6rem;
-      padding-right: 2rem;
+  &__cards::-webkit-scrollbar {
+    @media (max-width: $tablet) {
+      display: none;
     }
   }
-
   &__card:first-child {
+    @media (max-width: $tablet) {
+      margin-left: 2.8rem;
+    }
     @media (max-width: $mobile) {
       margin-left: 2rem;
     }
   }
-
-  &__card {
-    @media (max-width: $mobile) {
-      flex-basis: min(31rem, 84vw);
-    }
+  @media (max-width: $mobile) {
+    padding: 7rem 0 9rem;
   }
 }
 </style>

@@ -35,7 +35,6 @@ const props = defineProps({
 .organizers {
   padding: 12rem 0 14rem;
   background: $red-500;
-
   &__container {
     @media (max-width: $laptop) {
       width: 100%;
@@ -44,22 +43,21 @@ const props = defineProps({
       padding: 0 4rem;
       box-sizing: border-box;
     }
-
     @media (max-width: $tablet) {
       padding: 0 2.8rem;
     }
-
     @media (max-width: $mobile) {
       padding: 0 2rem;
     }
   }
-
   &__content {
     display: flex;
     flex-direction: column;
     gap: 4.4rem;
+    @media (max-width: $tablet) {
+      gap: 4rem;
+    }
   }
-
   &__list {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -67,8 +65,13 @@ const props = defineProps({
     margin: 0;
     padding: 0;
     list-style: none;
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    @media (max-width: $mobile) {
+      grid-template-columns: minmax(0, 1fr);
+    }
   }
-
   &__tile {
     display: flex;
     min-width: 0;
@@ -78,8 +81,17 @@ const props = defineProps({
     padding: 2.4rem 3.6rem;
     border: 0.1rem solid $blue-50;
     border-radius: 5rem;
+    @media (max-width: $tablet) {
+      height: 14rem;
+      padding: 2rem;
+      border-radius: 4rem;
+    }
+    @media (max-width: $mobile) {
+      height: 12rem;
+      padding: 2rem 3.6rem;
+      border-radius: 3.2rem;
+    }
   }
-
   &__logo {
     display: block;
     width: auto;
@@ -87,47 +99,11 @@ const props = defineProps({
     max-height: 6rem;
     object-fit: contain;
   }
-
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;
   }
-
-  &__content {
-    @media (max-width: $tablet) {
-      gap: 4rem;
-    }
-  }
-
-  &__list {
-    @media (max-width: $tablet) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-
-  &__tile {
-    @media (max-width: $tablet) {
-      height: 14rem;
-      padding: 2rem;
-      border-radius: 4rem;
-    }
-  }
-
   @media (max-width: $mobile) {
     padding: 7rem 0 9rem;
-  }
-
-  &__list {
-    @media (max-width: $mobile) {
-      grid-template-columns: minmax(0, 1fr);
-    }
-  }
-
-  &__tile {
-    @media (max-width: $mobile) {
-      height: 12rem;
-      padding: 2rem 3.6rem;
-      border-radius: 3.2rem;
-    }
   }
 }
 </style>

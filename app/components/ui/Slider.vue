@@ -103,7 +103,6 @@ const nextRef = ref(null)
 // ═══════════════════════════════════════════
 .slider {
   --slider-slide-width: 37rem;
-
   // ═══ Desktop: Swiper ═══
   &__desktop {
     display: flex;
@@ -111,23 +110,18 @@ const nextRef = ref(null)
     justify-content: center;
     gap: 6.3rem;
   }
-
   &__viewport {
     overflow: hidden;
-
     .swiper {
       overflow: visible;
     }
-
     .swiper-wrapper {
       display: flex;
     }
   }
-
   &__slide {
     // Ширина управляется через slidesPerView, не переопределяем
   }
-
   // ═══ Стрелки ═══
   &__arrow {
     flex-shrink: 0;
@@ -142,18 +136,15 @@ const nextRef = ref(null)
     padding: 0;
     transition: opacity 0.2s;
     z-index: 5;
-
     &:hover {
       opacity: 0.8;
     }
-
     &--disabled,
     &.swiper-button-disabled {
       opacity: 0.3;
       pointer-events: none;
     }
   }
-
   // ═══ Tablet / Mobile: нативный скролл ═══
   &__native {
     display: flex;
@@ -163,24 +154,24 @@ const nextRef = ref(null)
     padding: 0 var(--container-padding, 2rem);
     margin: 0 calc(-1 * var(--container-padding, 2rem));
     -webkit-overflow-scrolling: touch;
-
-    @media (max-width: $tablet) { --slider-slide-width: 30rem; }
-    @media (max-width: $mobile) { --slider-slide-width: 28rem; }
-
+    @media (max-width: $tablet) {
+      --slider-slide-width: 30rem;
+    }
+    @media (max-width: $mobile) {
+      --slider-slide-width: 28rem;
+    }
     // Скрываем скроллбар
     scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }
   }
-
   &__native-slide {
     flex-shrink: 0;
     scroll-snap-align: start;
     width: var(--slider-slide-width);
   }
 }
-
 // ═══════════════════════════════════════════
 // Адаптив через CSS (без JS)
 // ═══════════════════════════════════════════

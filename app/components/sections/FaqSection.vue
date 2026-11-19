@@ -104,37 +104,64 @@ function isOpen(index) {
   padding: 0 0 12rem;
   overflow: visible;
   background: $blue-50;
-
   &__container {
     position: relative;
     z-index: 1;
     overflow: visible;
+    @media (max-width: $laptop) {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0 4rem;
+      box-sizing: border-box;
+    }
+    @media (max-width: $tablet) {
+      padding: 0 2.8rem;
+    }
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
   }
-
   &__inner {
     padding-top: 12rem;
     border-top: 0.1rem solid $blue-700;
+    @media (max-width: $tablet) {
+      padding-top: 9rem;
+    }
+    @media (max-width: $mobile) {
+      padding-top: 7rem;
+    }
   }
-
   &__content-wrap {
     display: flex;
     flex-direction: column;
     gap: 4.4rem;
+    @media (max-width: $tablet) {
+      gap: 4rem;
+    }
+    @media (max-width: $mobile) {
+      gap: 3.2rem;
+    }
   }
-
   &__accordion {
     padding: 0.4rem 4rem;
     border: 0.1rem solid rgba($white, 0.28);
     border-radius: 2rem;
     background: $blue-500;
+    @media (max-width: $tablet) {
+      padding: 0.4rem 2.8rem;
+    }
+    @media (max-width: $mobile) {
+      padding: 0.4rem 1.8rem;
+      border-radius: 1.6rem;
+    }
   }
-
   &__item {
     border-bottom: 0.1rem solid rgba($white, 0.28);
-
-    &:last-child { border-bottom: 0; }
+    &:last-child {
+      border-bottom: 0;
+    }
   }
-
   &__toggler {
     display: flex;
     width: 100%;
@@ -147,13 +174,18 @@ function isOpen(index) {
     color: $white;
     cursor: pointer;
     text-align: left;
-
     &:focus-visible {
       outline: 0.2rem solid $white;
       outline-offset: 0.2rem;
     }
+    @media (max-width: $tablet) {
+      padding: 2rem 0;
+    }
+    @media (max-width: $mobile) {
+      gap: 1.2rem;
+      padding: 1.8rem 0;
+    }
   }
-
   &__question {
     max-width: 69rem;
     font-family: $finlandica-text;
@@ -161,8 +193,13 @@ function isOpen(index) {
     font-weight: 600;
     letter-spacing: -0.026rem;
     line-height: 1.05;
+    @media (max-width: $tablet) {
+      font-size: 2rem;
+    }
+    @media (max-width: $mobile) {
+      font-size: 1.8rem;
+    }
   }
-
   &__icon {
     display: inline-flex;
     width: 3.8rem;
@@ -175,8 +212,10 @@ function isOpen(index) {
       width: 3.8rem;
       height: 3.8rem;
     }
+    @media (max-width: $mobile) {
+      flex-basis: 3.2rem;
+    }
   }
-
   &__answer {
     padding: 0 0 2.4rem;
     color: $blue-50;
@@ -184,17 +223,20 @@ function isOpen(index) {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.3;
-     margin-top: -2.4rem;
-
-    p { margin: 0; }
-
+    margin-top: -2.4rem;
+    p {
+      margin: 0;
+    }
     a {
       color: inherit;
       text-decoration: underline;
       text-underline-offset: 0.2rem;
     }
+    @media (max-width: $mobile) {
+      padding-bottom: 1.8rem;
+      font-size: 1.6rem;
+    }
   }
-
   &__decor {
     position: absolute;
     z-index: 0;
@@ -204,120 +246,22 @@ function isOpen(index) {
     height: 25.6rem;
     max-width: none;
     pointer-events: none;
-  }
-
-  &__container {
-    @media (max-width: $laptop) {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      padding: 0 4rem;
-      box-sizing: border-box;
+    @media (max-width: $mobile) {
+      width: 18rem;
+      height: 18rem;
     }
   }
-
   @media (max-width: $tablet) {
     padding-bottom: 11rem;
   }
-
-  &__container {
-    @media (max-width: $tablet) {
-      padding: 0 2.8rem;
-    }
-  }
-
-  &__inner {
-    @media (max-width: $tablet) {
-      padding-top: 9rem;
-    }
-  }
-
-  &__content-wrap {
-    @media (max-width: $tablet) {
-      gap: 4rem;
-    }
-  }
-
-  &__accordion {
-    @media (max-width: $tablet) {
-      padding: 0.4rem 2.8rem;
-    }
-  }
-
-  &__question {
-    @media (max-width: $tablet) {
-      font-size: 2rem;
-    }
-  }
-
-  &__toggler {
-    @media (max-width: $tablet) {
-      padding: 2rem 0;
-    }
-  }
-
   @media (max-width: $mobile) {
     padding-bottom: 9rem;
   }
-
-  &__container {
-    @media (max-width: $mobile) {
-      padding: 0 2rem;
-    }
-  }
-
-  &__inner {
-    @media (max-width: $mobile) {
-      padding-top: 7rem;
-    }
-  }
-
-  &__content-wrap {
-    @media (max-width: $mobile) {
-      gap: 3.2rem;
-    }
-  }
-
-  &__accordion {
-    @media (max-width: $mobile) {
-      padding: 0.4rem 1.8rem; border-radius: 1.6rem;
-    }
-  }
-
-  &__question {
-    @media (max-width: $mobile) {
-      font-size: 1.8rem;
-    }
-  }
-
-  &__toggler {
-    @media (max-width: $mobile) {
-      gap: 1.2rem; padding: 1.8rem 0;
-    }
-  }
-
   &__icon,
     &__icon img {
     @media (max-width: $mobile) {
-      width: 3.2rem; height: 3.2rem;
-    }
-  }
-
-  &__icon {
-    @media (max-width: $mobile) {
-      flex-basis: 3.2rem;
-    }
-  }
-
-  &__answer {
-    @media (max-width: $mobile) {
-      padding-bottom: 1.8rem; font-size: 1.6rem;
-    }
-  }
-
-  &__decor {
-    @media (max-width: $mobile) {
-      width: 18rem; height: 18rem;
+      width: 3.2rem;
+      height: 3.2rem;
     }
   }
 }

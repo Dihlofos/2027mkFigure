@@ -71,13 +71,21 @@ const props = defineProps({
   padding: 0 0 12rem;
   overflow: visible;
   background: $blue-50;
-
   &__container {
     position: relative;
     z-index: 1;
     overflow: visible;
+    @media (max-width: $tablet) {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0 2.8rem;
+      box-sizing: border-box;
+    }
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
   }
-
   &__inner {
     display: flex;
     align-items: flex-start;
@@ -85,23 +93,36 @@ const props = defineProps({
     gap: 4rem;
     padding-top: 12rem;
     border-top: 0.1rem solid $blue-700;
+    @media (max-width: $tablet) {
+      flex-direction: column;
+      gap: 4rem;
+      padding-top: 9rem;
+    }
+    @media (max-width: $mobile) {
+      gap: 3.2rem;
+      padding-top: 7rem;
+    }
   }
-
   &__content {
     display: flex;
     width: 38.4rem;
     flex: 0 0 38.4rem;
     flex-direction: column;
     gap: 4.4rem;
+    @media (max-width: $tablet) {
+      width: 100%;
+      flex: 0 0 auto;
+    }
+    @media (max-width: $mobile) {
+      gap: 3.2rem;
+    }
   }
-
   &__intro {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 2rem;
   }
-
   &__address {
     margin: 0;
     color: $blue-900;
@@ -110,10 +131,10 @@ const props = defineProps({
     font-style: normal;
     font-weight: 500;
     line-height: 1.1;
-
-    p { margin: 0; }
+    p {
+      margin: 0;
+    }
   }
-
   &__route {
     display: inline-flex;
     min-height: 4.4rem;
@@ -129,18 +150,15 @@ const props = defineProps({
     line-height: 1.1;
     text-decoration: none;
     transition: background-color 150ms ease, color 150ms ease;
-
     &:hover {
       background: $blue-700;
       color: $white;
     }
-
     &:focus-visible {
       outline: 0.2rem solid $blue-700;
       outline-offset: 0.3rem;
     }
   }
-
   &__stops {
     display: flex;
     flex-direction: column;
@@ -148,8 +166,10 @@ const props = defineProps({
     margin: 0;
     padding: 0;
     list-style: none;
+    @media (max-width: $tablet) {
+      max-width: 48rem;
+    }
   }
-
   &__stop {
     display: flex;
     min-height: 6.4rem;
@@ -158,8 +178,13 @@ const props = defineProps({
     padding: 1.2rem 1.6rem;
     border-radius: 4rem;
     background: $white;
+    @media (max-width: $mobile) {
+      min-height: 5.6rem;
+      gap: 1.2rem;
+      padding: 0.8rem 1.2rem;
+      border-radius: 3rem;
+    }
   }
-
   &__number {
     display: inline-flex;
     width: 4rem;
@@ -176,29 +201,34 @@ const props = defineProps({
     letter-spacing: 0.072rem;
     line-height: 1;
   }
-
   &__stop-name {
     color: $blue-900;
     font-family: $finlandica-text;
     font-size: 2rem;
     font-weight: 600;
     line-height: 1.1;
+    @media (max-width: $mobile) {
+      font-size: 1.8rem;
+    }
   }
-
   &__image-wrap {
     width: 58.8rem;
     flex: 0 1 58.8rem;
     overflow: hidden;
     border-radius: 2rem;
     background: $blue-500;
+    @media (max-width: $tablet) {
+      width: 100%;
+      max-width: 72rem;
+      flex: 0 0 auto;
+      align-self: center;
+    }
   }
-
   &__image {
     display: block;
     width: 100%;
     height: auto;
   }
-
   &__decor {
     position: absolute;
     z-index: 0;
@@ -207,94 +237,16 @@ const props = defineProps({
     width: 25.6rem;
     height: 25.6rem;
     pointer-events: none;
-  }
-
-  @media (max-width: $tablet) {
-    padding-bottom: 11rem;
-  }
-
-  &__container {
-    @media (max-width: $tablet) {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      padding: 0 2.8rem;
-      box-sizing: border-box;
-    }
-  }
-
-  &__inner {
-    @media (max-width: $tablet) {
-      flex-direction: column;
-      gap: 4rem;
-      padding-top: 9rem;
-    }
-  }
-
-  &__content {
-    @media (max-width: $tablet) {
-      width: 100%;
-      flex: 0 0 auto;
-    }
-  }
-
-  &__stops {
-    @media (max-width: $tablet) {
-      max-width: 48rem;
-    }
-  }
-
-  &__image-wrap {
-    @media (max-width: $tablet) {
-      width: 100%;
-      max-width: 72rem;
-      flex: 0 0 auto;
-      align-self: center;
-    }
-  }
-
-  @media (max-width: $mobile) {
-    padding-bottom: 9rem;
-  }
-
-  &__container {
-    @media (max-width: $mobile) {
-      padding: 0 2rem;
-    }
-  }
-
-  &__inner {
-    @media (max-width: $mobile) {
-      gap: 3.2rem; padding-top: 7rem;
-    }
-  }
-
-  &__content {
-    @media (max-width: $mobile) {
-      gap: 3.2rem;
-    }
-  }
-
-  &__stop {
-    @media (max-width: $mobile) {
-      min-height: 5.6rem;
-      gap: 1.2rem;
-      padding: 0.8rem 1.2rem;
-      border-radius: 3rem;
-    }
-  }
-
-  &__stop-name {
-    @media (max-width: $mobile) {
-      font-size: 1.8rem;
-    }
-  }
-
-  &__decor {
     @media (max-width: $mobile) {
       width: 18rem;
       height: 18rem;
     }
+  }
+  @media (max-width: $tablet) {
+    padding-bottom: 11rem;
+  }
+  @media (max-width: $mobile) {
+    padding-bottom: 9rem;
   }
 }
 </style>

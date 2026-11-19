@@ -58,19 +58,21 @@ const props = defineProps({
 .master-classes {
   padding: 12rem 0 14rem;
   background: $red-500;
-
   &__content {
     display: flex;
     flex-direction: column;
     gap: 4.4rem;
   }
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2.4rem;
+    @media (max-width: $tablet) {
+      grid-template-columns: minmax(0, 1fr);
+      justify-items: center;
+      gap: 2.4rem;
+    }
   }
-
   &__card {
     display: flex;
     min-width: 0;
@@ -81,14 +83,20 @@ const props = defineProps({
     padding: 1.4rem 1.4rem 2.8rem;
     border: 0.2rem solid $blue-50;
     border-radius: 2rem;
+    @media (max-width: $tablet) {
+      width: 100%;
+      max-width: 48rem;
+    }
+    @media (max-width: $mobile) {
+      min-height: 58rem;
+      padding: 1.2rem 1.2rem 2.4rem;
+    }
   }
-
   &__card-main {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-
   &__photo {
     position: relative;
     width: 100%;
@@ -97,7 +105,6 @@ const props = defineProps({
     border-radius: 1.2rem;
     background: $white;
   }
-
   &__photo-image {
     position: absolute;
     inset: 0;
@@ -107,13 +114,11 @@ const props = defineProps({
     object-fit: cover;
     object-position: center;
   }
-
   &__details {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
   }
-
   &__name {
     margin: 0;
     color: $white;
@@ -121,8 +126,10 @@ const props = defineProps({
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 1.05;
+    @media (max-width: $mobile) {
+      font-size: 2.2rem;
+    }
   }
-
   &__info {
     display: flex;
     min-height: 5.7rem;
@@ -132,7 +139,6 @@ const props = defineProps({
     padding-top: 2rem;
     border-top: 0.1rem solid rgba($white, 0.24);
   }
-
   &__date {
     display: inline-flex;
     min-width: 0;
@@ -145,7 +151,6 @@ const props = defineProps({
     line-height: 1.1;
     white-space: nowrap;
   }
-
   &__calendar {
     display: inline-flex;
     width: 3.6rem;
@@ -156,7 +161,6 @@ const props = defineProps({
     border-radius: 50%;
     background: rgba($white, 0.21);
   }
-
   &__time {
     display: inline-flex;
     min-height: 3.6rem;
@@ -171,8 +175,10 @@ const props = defineProps({
     font-weight: 600;
     line-height: 1.1;
     white-space: nowrap;
+    @media (max-width: $mobile) {
+      padding: 0 1.2rem;
+    }
   }
-
   &__registration {
     display: inline-flex;
     min-height: 5.2rem;
@@ -190,21 +196,17 @@ const props = defineProps({
     text-decoration: none;
     text-transform: uppercase;
     transition: background-color 150ms ease, color 150ms ease;
-
     &:hover {
       background: $blue-50;
     }
-
     &:focus-visible {
       outline: 0.2rem solid $white;
       outline-offset: 0.3rem;
     }
   }
-
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;
   }
-
   &__container {
     @media (max-width: $tablet) {
       width: 100%;
@@ -213,56 +215,17 @@ const props = defineProps({
       padding: 0 2.8rem;
       box-sizing: border-box;
     }
-  }
-
-  &__cards {
-    @media (max-width: $tablet) {
-      grid-template-columns: minmax(0, 1fr);
-      justify-items: center;
-      gap: 2.4rem;
-    }
-  }
-
-  &__card {
-    @media (max-width: $tablet) {
-      width: 100%;
-      max-width: 48rem;
-    }
-  }
-
-  @media (max-width: $mobile) {
-    padding: 7rem 0 9rem;
-  }
-
-  &__container {
     @media (max-width: $mobile) {
       padding: 0 2rem;
     }
   }
-
-  &__card {
-    @media (max-width: $mobile) {
-      min-height: 58rem;
-      padding: 1.2rem 1.2rem 2.4rem;
-    }
+  @media (max-width: $mobile) {
+    padding: 7rem 0 9rem;
   }
-
-  &__name {
-    @media (max-width: $mobile) {
-      font-size: 2.2rem;
-    }
-  }
-
   &__date,
     &__time {
     @media (max-width: $mobile) {
       font-size: 1.6rem;
-    }
-  }
-
-  &__time {
-    @media (max-width: $mobile) {
-      padding: 0 1.2rem;
     }
   }
 }

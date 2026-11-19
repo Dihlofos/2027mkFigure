@@ -19,11 +19,9 @@ const props = defineProps({
 <style lang="scss">
 .container {
   @include container;
-
   &--narrow {
     @include container(80rem);
   }
-
   &--wide {
     @include container(120rem);
   }

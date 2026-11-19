@@ -19,7 +19,6 @@ const props = defineProps({
   display: flex;
   align-items: center;
   gap: 2rem;
-
   &__label {
     display: inline-flex;
     min-height: 5rem;
@@ -37,7 +36,6 @@ const props = defineProps({
     text-transform: uppercase;
     white-space: nowrap;
   }
-
   &__address {
     color: $blue-700;
     font-family: $finlandica-text;
@@ -45,10 +43,10 @@ const props = defineProps({
     font-style: normal;
     font-weight: 500;
     line-height: 1.1;
-
-    p { margin: 0; }
+    p {
+      margin: 0;
+    }
   }
-
   @media (max-width: $tablet) {
     align-items: flex-start;
     flex-direction: column;
