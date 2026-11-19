@@ -84,6 +84,9 @@ export default {
       },
     ],
   },
+  schedule: {
+    title: 'Расписание',
+  },
   faq: {
     type: 'faq',
     title: 'Вопросы и ответы',
