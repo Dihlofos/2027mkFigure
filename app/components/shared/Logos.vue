@@ -10,14 +10,16 @@ const props = defineProps({
 <template>
   <ul class="logos" :aria-label="props.label">
     <li v-for="logo in props.items" :key="logo.src" class="logos__item">
-      <Image
-        :src="logo.src"
-        :alt="logo.alt"
-        :width="logo.width"
-        :height="logo.height"
-        loading="eager"
-        class="logos__image"
-      />
+      <a class="logos__link" href="#" :aria-label="logo.alt">
+        <Image
+          :src="logo.src"
+          :alt="logo.alt"
+          :width="logo.width"
+          :height="logo.height"
+          loading="eager"
+          class="logos__image"
+        />
+      </a>
     </li>
   </ul>
 </template>
@@ -47,6 +49,17 @@ const props = defineProps({
     max-width: 100%;
     height: auto;
     object-fit: contain;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 0.4rem;
+
+    &:focus-visible {
+      outline: 0.2rem solid $blue-700;
+      outline-offset: 0.3rem;
+    }
   }
 
   @media (max-width: $mobile) {

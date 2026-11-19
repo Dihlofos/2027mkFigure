@@ -8,9 +8,11 @@ export default {
   },
   navigation: {
     navItems: [
-      { label: 'Главная', link: '#hero' },
-      { label: 'Возможности', link: '#features' },
-      { label: 'О нас', link: '#about' },
+      { label: 'О событии', link: '#about-event', active: true },
+      { label: 'Регистрация', link: '#registration' },
+      { label: 'Расписание', link: '#schedule' },
+      { label: 'Карта', link: '#map' },
+      { label: 'Организаторы', link: '#organizers' },
       { label: 'Контакты', link: '#contact' },
     ],
     images: {

@@ -1,28 +1,46 @@
 <script setup>
+import Image from '~/components/ui/Image.vue'
+import Logos from '~/components/shared/Logos.vue'
+import FreeEntry from '~/components/shared/FreeEntry.vue'
+
 const props = defineProps({
   title: { type: String, required: true },
-  subtitle: { type: String, default: '' },
-  button: { type: Object, default: () => ({}) },
-  secondaryButton: { type: Object, default: () => ({}) },
-  backgroundImage: { type: String, default: '' },
+  date: { type: String, required: true },
+  logos: { type: Array, required: true },
+  entry: { type: Object, required: true },
 })
-
 </script>
 
 <template>
-  <section id="hero" class="hero">
-    <Container>
+  <section id="hero" class="hero" aria-labelledby="hero-title">
+    <Image
+      class="hero__corner hero__corner--top"
+      src="/images/hero/decor.svg"
+      alt=""
+      :width="120"
+      :height="121"
+      loading="eager"
+      aria-hidden="true"
+    />
+
+    <Container wide>
+      <div class="hero__figure-wrap" aria-hidden="true">
+        <Image
+          class="hero__figure"
+          src="/images/hero/figurist.png"
+          alt=""
+          :width="746"
+          :height="997"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+
       <div class="hero__content">
-        <h1 class="hero__title">{{ title }}</h1>
-        <p v-if="subtitle" class="hero__subtitle">{{ subtitle }}</p>
-        <div v-if="button || secondaryButton" class="hero__actions">
-          <Button v-if="button?.text" :to="button.link" variant="primary" size="lg">
-            {{ button.text }}
-          </Button>
-          <Button v-if="secondaryButton?.text" :to="secondaryButton.link" variant="secondary" size="lg">
-            {{ secondaryButton.text }}
-          </Button>
-        </div>
+        <h1 id="hero-title" class="hero__title">{{ props.title }}</h1>
+        <p class="hero__date">{{ props.date }}</p>
+        <FreeEntry :label="props.entry.label" :address="props.entry.address" />
+        <Logos class="hero__logos" :items="props.logos" />
       </div>
     </Container>
   </section>
@@ -30,64 +48,141 @@ const props = defineProps({
 
 <style lang="scss">
 .hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background-size: cover;
-  background-position: center;
-  background-color: $blue-900;
   position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at center, $white 35%, $blue-50 100%);
+  color: $blue-900;
 
-  // Overlay for readability
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      135deg,
-      rgba(31, 48, 95, 0.9) 0%,
-      rgba(31, 48, 95, 0.6) 100%
-    );
+  > .container {
+    position: relative;
+    min-height: inherit;
+
+    @media (max-width: $laptop) {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0 4rem;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: $tablet) {
+      padding: 0 2.8rem;
+    }
+
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
   }
 
   &__content {
     position: relative;
     z-index: 1;
-    max-width: 72rem;
+    padding-top: 15.9rem;
+    padding-bottom: 11.5rem;
   }
 
   &__title {
-    color: $white;
-    font-size: 3.6rem;
-    line-height: 1;
-    margin-bottom: 2.4rem;
+    width: min(73.6rem, 62%);
+    margin: 0;
+    font-family: $jost;
+    font-size: 8rem;
+    font-weight: 700;
+    letter-spacing: 0.124rem;
+    line-height: 0.87;
+    text-transform: uppercase;
+  }
 
-    @media (min-width: 48rem) {
-      font-size: 4.8rem;
-    }
+  &__date {
+    margin: 2.2rem 0 2.9rem;
+    font-family: $finlandica-text;
+    font-size: 2.4rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
 
-    @media (min-width: 64rem) {
-      font-size: 6rem;
+  &__logos {
+    width: 58.7rem;
+    max-width: 100%;
+    margin-top: 3.6rem;
+  }
 
+  &__figure-wrap {
+    position: absolute;
+    z-index: 0;
+    top: -9.7rem;
+    bottom: 0;
+    right: -35.6rem;
+    width: 101rem;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  &__figure {
+    position: absolute;
+    top: 1rem;
+    left: 0;
+    display: block;
+    width: 101rem;
+    height: 120.3rem;
+    max-width: none;
+    object-fit: contain;
+  }
+
+  &__corner {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 0;
+    display: block;
+    width: 18.9rem;
+    height: 18.9rem;
+    pointer-events: none;
+  }
+
+  @media (max-width: $laptop) {
+    &__title { font-size: clamp(5.6rem, 6vw, 7.6rem); }
+
+    &__figure-wrap {
+      right: -15rem;
+      transform: scale(0.9);
+      transform-origin: top right;
     }
   }
 
-  &__subtitle {
-    color: $blue-300;
-    font-size: 1.8rem;
-    margin-bottom: 3.2rem;
-    line-height: 1.75;
-    max-width: 54rem;
+  @media (max-width: $tablet) {
+    &__content { padding-top: 14rem; }
+    &__content { padding-bottom: 8rem; }
 
-    @media (min-width: 48rem) {
-      font-size: 2rem;
+    &__title {
+      width: min(100%, 64rem);
+      font-size: clamp(3.6rem, 5.3vw, 4.8rem);
+      letter-spacing: 0.124rem;
+      line-height: 0.95;
     }
-  }
 
-  &__actions {
-    display: flex;
-    gap: 1.6rem;
-    flex-wrap: wrap;
+    &__date {
+      margin: 2.8rem 0 1.6rem;
+      font-size: 1.6rem;
+    }
+
+    &__logos {
+      width: 100%;
+      max-width: 50rem;
+      justify-content: flex-start;
+      gap: 2.4rem;
+      margin-top: 3.8rem;
+    }
+
+    &__logos .logos__item { flex: 0 0 auto; }
+
+    &__logos .logos__image {
+      width: auto;
+      height: 2.4rem;
+      max-width: none;
+    }
+
+    &__figure-wrap,
+    &__corner { display: none; }
   }
 }
 </style>

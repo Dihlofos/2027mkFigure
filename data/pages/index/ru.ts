@@ -20,12 +20,18 @@ export default {
     },
   },
   hero: {
-    type: 'hero',
-    title: 'Создаём современные веб-сайты',
-    subtitle: 'Быстро, надёжно, красиво. Используем Nuxt 3 и SCSS.',
-    button: { text: 'Узнать больше', link: '#features' },
-    secondaryButton: { text: 'Связаться', link: '#contact' },
-    backgroundImage: 'components/HeroSection/bg-hero.jpg',
+    title: 'Мастер-классы со звездами фигурного катания',
+    date: '5 декабря 2026 — 28 февраля 2027',
+    logos: [
+      { src: '/images/logos/major.svg', alt: 'Проект Мэра Москвы', width: 90, height: 44 },
+      { src: '/images/logos/winter.svg', alt: 'Зима в Москве', width: 111, height: 44 },
+      { src: '/images/logos/dep.svg', alt: 'Департамент спорта города Москвы', width: 128, height: 44 },
+      { src: '/images/logos/mossport.svg', alt: 'Московский спорт', width: 146, height: 44 },
+    ],
+    entry: {
+      label: 'Вход бесплатный',
+      address: ['Лужники,', 'Южный спортивный центр'],
+    },
   },
   faq: {
     type: 'faq',

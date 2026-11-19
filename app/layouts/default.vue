@@ -7,9 +7,9 @@ const common = computed(() => localeData.value.common)
 
 <template>
   <div class="page">
-    <!-- <Header :navigation="common.navigation" :ui="common.ui" /> -->
+    <Header :navigation="common.navigation" :ui="common.ui" />
     <slot />
-    <!-- <Footer :footer-data="common.footer" /> -->
+    <Footer :footer-data="common.footer" />
     <CookieModal :ui="common.ui" />
   </div>
 </template>

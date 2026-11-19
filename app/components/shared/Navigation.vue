@@ -15,7 +15,7 @@ function closeMobile() {
 </script>
 
 <template>
-  <nav class="nav" :class="{ 'nav--open': mobileOpen }">
+  <nav class="nav" :class="{ 'nav--open': mobileOpen }" aria-label="Основная навигация">
     <button class="nav__toggle" @click="toggleMobile" :aria-label="ui.menu">
       <Image v-if="!mobileOpen" :src="navigation.images.burger" :alt="ui.openMenu" width="44" height="44" />
       <Image v-else :src="navigation.images.close" :alt="ui.closeMenu" width="35" height="35" />
@@ -24,7 +24,7 @@ function closeMobile() {
     <div class="nav__overlay">
       <ul class="nav__list">
         <li v-for="item in navigation.navItems" :key="item.link" class="nav__item">
-          <a :href="item.link" class="nav__link" v-anchor @click="closeMobile">
+          <a :href="item.link" class="nav__link" :class="{ 'nav__link--active': item.active }" :aria-current="item.active ? 'page' : undefined" v-anchor @click="closeMobile">
             {{ item.label }}
           </a>
         </li>
@@ -35,13 +35,8 @@ function closeMobile() {
 
 <style lang="scss">
 .nav {
-  img.nav__girls {
-    display: none !important;
-
-    @media (max-width: $tablet) {
-      display: block !important;
-    }
-  }
+  display: flex;
+  justify-content: center;
 
   &__toggle {
     display: none;
@@ -102,9 +97,13 @@ function closeMobile() {
 
   &__list {
     display: flex;
-    gap: 2.4rem;
+    gap: 0.2rem;
     align-items: center;
     list-style: none;
+    margin: 0;
+    padding: 0.8rem;
+    border-radius: 5rem;
+    background: $blue-50;
 
     @media (max-width: $tablet) {
       flex-direction: column;
@@ -116,21 +115,33 @@ function closeMobile() {
   }
 
   &__link {
-    font-size: 1.8rem;
+    display: block;
+    padding: 1.5rem 1.6rem;
+    border-radius: 5rem;
+    font-family: $finlandica-text;
+    font-size: 1.4rem;
     font-weight: 500;
     line-height: 1.1;
-    color: $white;
-    transition: color 150ms ease;
+    color: $blue-700;
+    transition: background-color 150ms ease, color 150ms ease;
     text-decoration: none;
 
-    &:hover {
-      text-decoration: underline;
+    &:hover,
+    &--active {
+      background: $white;
+    }
+
+    &:focus-visible {
+      outline: 0.2rem solid $blue-700;
+      outline-offset: 0.2rem;
     }
 
     @media (max-width: $tablet) {
       font-size: 2.4rem;
       font-weight: 600;
       padding: 0.8rem 0;
+      color: $white;
+      background: transparent;
     }
   }
 }
