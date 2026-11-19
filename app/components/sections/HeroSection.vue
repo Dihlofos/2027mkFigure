@@ -39,10 +39,20 @@ const props = defineProps({
       <div class="hero__content">
         <h1 id="hero-title" class="hero__title">{{ props.title }}</h1>
         <p class="hero__date">{{ props.date }}</p>
-        <FreeEntry :label="props.entry.label" :address="props.entry.address" />
+        <FreeEntry class="hero__entry" :label="props.entry.label" :address="props.entry.address" />
         <Logos class="hero__logos" :items="props.logos" />
       </div>
     </Container>
+
+    <Image
+      class="hero__mobile-decor"
+      src="/images/hero/mobile-decor.svg"
+      alt=""
+      :width="204"
+      :height="204"
+      loading="eager"
+      aria-hidden="true"
+    />
   </section>
 </template>
 
@@ -105,6 +115,8 @@ const props = defineProps({
     max-width: 100%;
     margin-top: 3.6rem;
   }
+
+  &__mobile-decor { display: none; }
 
   &__figure-wrap {
     position: absolute;
@@ -209,6 +221,48 @@ const props = defineProps({
     &__corner {
     @media (max-width: $tablet) {
       display: none;
+    }
+  }
+
+  &__content {
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column;
+      padding-top: 9rem;
+      padding-bottom: 10rem;
+    }
+  }
+
+  &__logos {
+    @media (max-width: $mobile) {
+      order: 0;
+      margin-top: 0;
+      margin-bottom: 2.8rem;
+    }
+  }
+
+  &__title {
+    @media (max-width: $mobile) { order: 1; }
+  }
+
+  &__date {
+    @media (max-width: $mobile) { order: 2; margin: 1.8rem 0; }
+  }
+
+  &__entry {
+    @media (max-width: $mobile) { order: 3; }
+  }
+
+  &__mobile-decor {
+    @media (max-width: $mobile) {
+      position: absolute;
+      z-index: 0;
+      right: 0;
+      bottom: 0;
+      display: block;
+      width: 20.4rem;
+      height: 20.4rem;
+      pointer-events: none;
     }
   }
 }
