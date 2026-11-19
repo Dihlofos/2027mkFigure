@@ -13,25 +13,25 @@ defineProps({
 
 <style lang="scss">
 .title {
-  :where(&) {
-    font-family: $jost;
-    font-size: 6rem;
-    font-style: italic;
-    font-weight: 700;
-    line-height: 1.1;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 0 6rem;
-  }
+  font-family: $jost;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 0.87;
+  letter-spacing: 0.124rem;
+  color: $blue-900;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0;
 
   &--white { color: $white; }
 
   @media (max-width: $tablet) {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 
   @media (max-width: $mobile) {
-    font-size: 3rem;
+    font-size: 3.6rem;
   }
 }
 </style>
