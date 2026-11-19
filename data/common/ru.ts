@@ -8,7 +8,7 @@ export default {
   },
   navigation: {
     navItems: [
-      { label: 'О событии', link: '#about-event', active: true },
+      { label: 'О событии', link: '#about-event' },
       { label: 'Регистрация', link: '#registration' },
       { label: 'Расписание', link: '#schedule' },
       { label: 'Карта', link: '#map' },
@@ -21,23 +21,14 @@ export default {
     },
   },
   footer: {
-    type: 'footer',
-    title: 'Контакты',
     contacts: [
-      { label: 'По вопросам регистрации', email: 'name@mail.ru' },
-      { label: 'Для СМИ', email: 'pressame@mail.ru' },
+      { label: 'Общая почта', email: 'ano@mossport.ru' },
+      { label: 'Для СМИ', email: 'press@moscow.sport' },
     ],
-    info: {
-      text: 'Для аккредитации на событие отправьте письмо на электронный адрес со следующей информацией:',
-      items: [
-        'название СМИ и программы, планируемая дата выхода материала;',
-        'ФИО корреспондента / всех участников съемочной группы с контактными телефонами.',
-      ],
-    },
     docs: [
+      { href: '/docs/reject_child.pdf', label: 'Согласие родителей на участие несовершеннолетнего' },
+      { href: '/docs/reject.pdf', label: 'Согласие на участие и обработку персональных данных' },
       { href: '/docs/policy.pdf', label: 'Политика конфиденциальности' },
-      { href: '/docs/reject.pdf', label: 'Отказ от претензий от участника' },
-      { href: '/docs/reject_child.pdf', label: 'Отказ от претензий от опекуна ребенка' },
     ],
   },
   ui: {

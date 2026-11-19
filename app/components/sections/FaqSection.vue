@@ -179,6 +179,7 @@ function isOpen(index) {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.3;
+     margin-top: -2.4rem;
 
     p { margin: 0; }
 

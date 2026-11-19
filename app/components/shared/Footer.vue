@@ -1,33 +1,42 @@
 <script setup>
+import Image from '~/components/ui/Image.vue'
+
 defineProps({
   footerData: { type: Object, required: true },
 })
 </script>
 
 <template>
-  <footer class="footer" id="contact">
-    <Container>
-      <div class="footer__wrapper">
-        <div class="footer__content">
-          <div class="footer__title">{{ footerData.title }}</div>
-
-          <div class="footer__contacts">
-            <div v-for="contact in footerData.contacts" :key="contact.email" class="footer__contacts-item">
-              <div class="footer__contacts-label">{{ contact.label }}</div>
-              <a :href="'mailto:' + contact.email" target="_blank" class="footer__contacts-link">{{ contact.email }}</a>
-            </div>
+  <footer id="contact" class="footer" aria-label="Контакты и документы">
+    <Container wide class="footer__container">
+      <div class="footer__layout">
+        <div class="footer__contacts">
+          <div v-for="contact in footerData.contacts" :key="contact.email" class="footer__contact">
+            <span class="footer__contact-label">{{ contact.label }}</span>
+            <a class="footer__contact-email" :href="`mailto:${contact.email}`">{{ contact.email }}</a>
           </div>
+        </div>
 
-          <div class="footer__info">
-            <p class="footer__info-text">{{ footerData.info.text }}</p>
-            <ul>
-              <li v-for="(item, i) in footerData.info.items" :key="i">{{ item }}</li>
-            </ul>
-          </div>
-
-          <div class="footer__docs">
-            <a v-for="doc in footerData.docs" :key="doc.href" :href="doc.href" target="_blank">{{ doc.label }}</a>
-          </div>
+        <div class="footer__documents">
+          <h2 class="footer__documents-title">Документы</h2>
+          <ul class="footer__document-list">
+            <li v-for="doc in footerData.docs" :key="doc.href" class="footer__document-item">
+              <a class="footer__document-link" :href="doc.href" target="_blank" rel="noopener noreferrer">
+                <span class="footer__document-icon" aria-hidden="true">
+                  <Image src="/images/doc.svg" alt="" :width="18" :height="18" />
+                </span>
+                <span class="footer__document-label">{{ doc.label }}</span>
+                <Image
+                  class="footer__document-arrow"
+                  src="/images/arrow-down.svg"
+                  alt=""
+                  :width="12"
+                  :height="14"
+                  aria-hidden="true"
+                />
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </Container>
@@ -36,146 +45,165 @@ defineProps({
 
 <style lang="scss">
 .footer {
-  position: relative;
-  background-color: $blue-900;
-  padding: 7rem 0 3.2rem;
-  overflow: hidden;
+  padding: 12rem 0;
+  background: $blue-700;
 
-  @media (max-width: $tablet) {
-    padding: 4rem 0 2rem;
-  }
-
-  &__wrapper {
-    position: relative;
-  }
-
-  &__content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-  }
-
-  &__title {
-    font-family: $jost;
-    font-size: 6.4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 0.86;
-    text-transform: uppercase;
-    color: $white;
-    text-align: left;
-    margin-bottom: 4rem;
+  &__container {
+    @media (max-width: $laptop) {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0 4rem;
+      box-sizing: border-box;
+    }
 
     @media (max-width: $tablet) {
-      font-size: 4rem;
-      margin-bottom: 3.5rem;
+      padding: 0 2.8rem;
     }
+
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
+  }
+
+  &__layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 55.6rem;
+    gap: 4.8rem;
   }
 
   &__contacts {
-    display: flex;
-    flex-direction: row;
-    gap: 6.6rem;
-    margin-bottom: 4rem;
-
-    @media (max-width: $tablet) {
-      flex-direction: column;
-      gap: 1.5rem;
-      margin-bottom: 1.5rem;
-    }
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    align-content: start;
+    column-gap: 2.7rem;
+    row-gap: 2.8rem;
   }
 
-  &__contacts-item {
+  &__contact {
     display: flex;
+    min-width: 0;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.4rem;
+  }
 
-    @media (max-width: $tablet) {
-      gap: 0.2rem;
+  &__contact-label {
+    margin: 0;
+    color: $blue-50;
+    font-family: $golos-text;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  &__documents-title {
+    margin: 0 0 1.2rem;
+    color: $blue-50;
+    font-family: $finlandica-text;
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+
+  &__contact-email {
+    color: $white;
+    font-family: $finlandica-text;
+    font-size: 2.8rem;
+    font-weight: 600;
+    line-height: 1.08;
+    text-decoration: none;
+    white-space: nowrap;
+
+    &:hover { text-decoration: underline; }
+
+    &:focus-visible {
+      outline: 0.2rem solid $white;
+      outline-offset: 0.3rem;
     }
   }
 
-  &__contacts-label {
-    color: $white;
-    font-family: $finlandica-text;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    text-transform: uppercase;
-
-    @media (max-width: $tablet) {
-      font-size: 1.2rem;
-    }
+  &__document-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
   }
 
-  &__contacts-link {
+  &__document-item {
+    border-bottom: 0.1rem solid rgba($white, 0.16);
+
+    &:last-child { border-bottom: 0; }
+  }
+
+  &__document-link {
+    display: flex;
+    min-height: 6.4rem;
+    align-items: center;
+    gap: 1.4rem;
+    padding: 1.2rem 0;
     color: $white;
-    font-family: $finlandica-text;
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 3.2rem;
     text-decoration: none;
 
-    @media (max-width: $tablet) {
-      font-size: 2.4rem;
+    &:hover .footer__document-label { text-decoration: underline; }
+
+    &:focus-visible {
+      outline: 0.2rem solid $white;
+      outline-offset: 0.2rem;
     }
   }
 
-  &__info {
+  &__document-icon {
+    display: inline-flex;
+    width: 4rem;
+    height: 4rem;
+    flex: 0 0 4rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 2rem;
+    background: rgba($white, 0.16);
+  }
+
+  &__document-label {
+    flex: 1 1 auto;
     color: $white;
     font-family: $finlandica-text;
-    font-size: 2rem;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 120%;
-    max-width: 105rem;
-
-    @media (max-width: $tablet) {
-      font-size: 1.2rem;
-    }
-
-    &-text {
-      margin: 0;
-    }
-
-    ul {
-      margin-top: 2.3rem;
-      margin-bottom: 2.2rem;
-      padding-left: 3rem;
-      max-width: 85rem;
-
-      @media (max-width: $tablet) {
-        margin-top: 1rem;
-        margin-bottom: 2.4rem;
-      }
-    }
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 1.2;
   }
 
-  &__docs {
-    display: flex;
-    flex-direction: row;
-    gap: 5rem;
+  &__document-arrow {
+    display: block;
+    width: 1.2rem;
+    height: 1.4rem;
+    flex: 0 0 1.2rem;
+  }
 
-    @media (max-width: $tablet) {
-      flex-direction: column;
-      gap: 0.3rem;
+  @media (max-width: $tablet) {
+    padding: 9rem 0;
+
+    &__layout {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 5rem;
     }
 
-    a {
-      color: $white;
-      opacity: 0.8;
-      font-family: $finlandica-text;
-      font-size: 1.6rem;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 2rem;
+    &__contacts { gap: 2.4rem; }
 
-      @media (max-width: $tablet) {
-        font-size: 1.2rem;
-      }
+    &__documents { max-width: 65rem; }
+  }
+
+  @media (max-width: $mobile) {
+    padding: 7rem 0;
+
+    &__layout { gap: 4rem; }
+
+    &__contacts {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 2.8rem;
     }
+
+    &__contact-email { font-size: 2.4rem; }
+
+    &__document-link { gap: 1.2rem; }
   }
 }
 </style>
