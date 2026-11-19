@@ -10,6 +10,7 @@ const scheduleData = computed(() => ({
   title: localeData.value.pages.index.schedule.title,
   items: masterClassesData.value.cards,
 }))
+const mapData = computed(() => localeData.value.pages.index.map)
 
 useHead({
   title: computed(() => heroData.value.title),
@@ -21,5 +22,6 @@ useHead({
     <AboutSection v-bind="aboutEventData" />
     <MasterClassesSection v-bind="masterClassesData" />
     <ScheduleSection v-bind="scheduleData" />
+    <MapSection v-bind="mapData" />
   </main>
 </template>
