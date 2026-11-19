@@ -54,6 +54,36 @@ export default {
       },
     ],
   },
+  masterClasses: {
+    title: 'Ближайшие мастер-классы',
+    registrationLabel: 'Регистрация',
+    cards: [
+      {
+        name: 'Мастер-класс с Алиной Загитовой',
+        photo: '/images/mk/zagitova.jpg',
+        photoAlt: 'Алина Загитова',
+        date: '5 декабря',
+        time: '14:00–15:00',
+        registrationHref: '#',
+      },
+      {
+        name: 'Мастер-класс с Евгенией Медведевой',
+        photo: '/images/mk/medvedeva.jpg',
+        photoAlt: 'Евгения Медведева',
+        date: '6 декабря',
+        time: '14:00–15:00',
+        registrationHref: '#',
+      },
+      {
+        name: 'Мастер-класс с Александрой Бойковой и Дмитрием Козловским',
+        photo: '/images/mk/boikova-kozlovsky.jpg',
+        photoAlt: 'Александра Бойкова и Дмитрий Козловский',
+        date: '26 декабря',
+        time: '14:00–15:00',
+        registrationHref: '#',
+      },
+    ],
+  },
   faq: {
     type: 'faq',
     title: 'Вопросы и ответы',

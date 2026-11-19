@@ -43,6 +43,7 @@ const props = defineProps({
   padding: 12rem 0 16rem;
   background: $blue-50;
   color: $white;
+  overflow: hidden;
 
   &__container {
     position: relative;
