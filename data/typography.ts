@@ -24,12 +24,14 @@ const NO_BREAK_WORDS: Record<Locale, ReadonlySet<string>> = {
 
 const NON_TEXT_KEYS = new Set([
   'autocomplete',
+  'description',
   'href',
   'id',
   'inputmode',
   'link',
   'name',
   'src',
+  'title',
   'type',
   'url',
   'variant',

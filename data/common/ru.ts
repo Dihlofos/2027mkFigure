@@ -1,9 +1,9 @@
 export default {
   site: {
-    title: 'Мастер-классы со звездами фигурного катания',
-    description: 'Лужники, Южный спортивный центр',
+    title: 'Мастер-классы от известных фигуристов в Лужниках',
+    description: 'Бесплатные мастер-классы по фигурному катанию в Лужниках. С 5 декабря 2026 по 28 февраля 2027.',
     keywords: [],
-    url: 'https://example.com',
+    url: 'https://figureskating.sport.mos.ru',
     ogImage: '/images/favicons/favicon.svg',
   },
   navigation: {
