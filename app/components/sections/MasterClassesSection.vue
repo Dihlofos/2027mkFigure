@@ -13,7 +13,7 @@ const props = defineProps({
   <section id="master-classes" class="master-classes" aria-labelledby="master-classes-title">
     <Container wide class="master-classes__container">
       <div class="master-classes__content">
-        <Title id="master-classes-title" tag="h2" white>{{ props.title }}</Title>
+        <Title id="master-classes-title" tag="h2" pale>{{ props.title }}</Title>
 
         <div class="master-classes__cards">
           <article v-for="card in props.cards" :key="card.name" class="master-classes__card">

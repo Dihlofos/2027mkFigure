@@ -206,7 +206,6 @@ const props = defineProps({
     left: 0;
     width: 25.6rem;
     height: 25.6rem;
-    transform: rotate(180deg);
     pointer-events: none;
   }
 

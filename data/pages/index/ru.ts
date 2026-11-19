@@ -96,6 +96,15 @@ export default {
     image: '/images/map/map.png',
     imageAlt: 'Карта Южного спортивного центра в Лужниках с отметками площадок',
   },
+  organizers: {
+    title: 'Организаторы',
+    logos: [
+      { src: '/images/logos/major-white.svg', alt: 'Проект Мэра Москвы', width: 122, height: 60 },
+      { src: '/images/logos/winter-white.svg', alt: 'Зима в Москве', width: 126, height: 50 },
+      { src: '/images/logos/dep-white.svg', alt: 'Департамент спорта города Москвы', width: 174, height: 60 },
+      { src: '/images/logos/mossport-white.svg', alt: 'Московский спорт', width: 166, height: 50 },
+    ],
+  },
   faq: {
     type: 'faq',
     title: 'Вопросы и ответы',

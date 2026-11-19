@@ -2,11 +2,12 @@
 defineProps({
   tag: { type: String, default: 'h2' },
   white: { type: Boolean, default: false },
+  pale: { type: Boolean, default: false },
 })
 </script>
 
 <template>
-  <component :is="tag" :class="['title', { 'title--white': white }]">
+  <component :is="tag" :class="['title', { 'title--white': white, 'title--pale': pale }]">
     <slot />
   </component>
 </template>
@@ -25,6 +26,7 @@ defineProps({
   margin: 0;
 
   &--white { color: $white; }
+  &--pale { color: $blue-50; }
 
   @media (max-width: $tablet) {
     font-size: 4rem;
