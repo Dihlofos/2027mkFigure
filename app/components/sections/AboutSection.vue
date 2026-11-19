@@ -111,20 +111,32 @@ const props = defineProps({
 
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;
+  }
 
-    &__container {
+  &__container {
+    @media (max-width: $tablet) {
       width: 100%;
       min-width: 0;
       max-width: 100%;
       padding: 0;
       box-sizing: border-box;
     }
+  }
 
-    &__content { gap: 4rem; }
+  &__content {
+    @media (max-width: $tablet) {
+      gap: 4rem;
+    }
+  }
 
-    &__heading { padding: 0 2.8rem; }
+  &__heading {
+    @media (max-width: $tablet) {
+      padding: 0 2.8rem;
+    }
+  }
 
-    &__cards {
+  &__cards {
+    @media (max-width: $tablet) {
       display: flex;
       gap: 2rem;
       padding: 0 2.8rem 0 0;
@@ -134,16 +146,27 @@ const props = defineProps({
       -ms-overflow-style: none;
       -webkit-overflow-scrolling: touch;
 
-      &::-webkit-scrollbar { display: none; }
     }
+  }
 
-    &__card:first-child { margin-left: 2.8rem; }
+  &__cards::-webkit-scrollbar {
+    @media (max-width: $tablet) { display: none; }
+  }
 
-    &__card {
+  &__card:first-child {
+    @media (max-width: $tablet) {
+      margin-left: 2.8rem;
+    }
+  }
+
+  &__card {
+    @media (max-width: $tablet) {
       flex: 0 0 min(32rem, 78vw);
     }
+  }
 
-    &__decor {
+  &__decor {
+    @media (max-width: $tablet) {
       top: -5rem;
       right: -7rem;
       width: 82rem;
@@ -153,17 +176,31 @@ const props = defineProps({
 
   @media (max-width: $mobile) {
     padding: 7rem 0 9rem;
+  }
 
-    &__heading { padding: 0 2rem; }
+  &__heading {
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
+  }
 
-    &__cards {
+  &__cards {
+    @media (max-width: $mobile) {
       gap: 1.6rem;
       padding-right: 2rem;
     }
+  }
 
-    &__card:first-child { margin-left: 2rem; }
+  &__card:first-child {
+    @media (max-width: $mobile) {
+      margin-left: 2rem;
+    }
+  }
 
-    &__card { flex-basis: min(31rem, 84vw); }
+  &__card {
+    @media (max-width: $mobile) {
+      flex-basis: min(31rem, 84vw);
+    }
   }
 }
 </style>

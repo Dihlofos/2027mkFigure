@@ -90,12 +90,22 @@ const props = defineProps({
 
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;
+  }
 
-    &__content { gap: 4rem; }
+  &__content {
+    @media (max-width: $tablet) {
+      gap: 4rem;
+    }
+  }
 
-    &__list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  &__list {
+    @media (max-width: $tablet) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
 
-    &__tile {
+  &__tile {
+    @media (max-width: $tablet) {
       height: 14rem;
       padding: 2rem;
       border-radius: 4rem;
@@ -104,10 +114,16 @@ const props = defineProps({
 
   @media (max-width: $mobile) {
     padding: 7rem 0 9rem;
+  }
 
-    &__list { grid-template-columns: minmax(0, 1fr); }
+  &__list {
+    @media (max-width: $mobile) {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
 
-    &__tile {
+  &__tile {
+    @media (max-width: $mobile) {
       height: 12rem;
       padding: 2rem 3.6rem;
       border-radius: 3.2rem;

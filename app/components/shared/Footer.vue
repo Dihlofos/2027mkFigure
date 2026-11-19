@@ -180,30 +180,54 @@ defineProps({
 
   @media (max-width: $tablet) {
     padding: 9rem 0;
+  }
 
-    &__layout {
+  &__layout {
+    @media (max-width: $tablet) {
       grid-template-columns: minmax(0, 1fr);
       gap: 5rem;
     }
+  }
 
-    &__contacts { gap: 2.4rem; }
+  &__contacts {
+    @media (max-width: $tablet) {
+      gap: 2.4rem;
+    }
+  }
 
-    &__documents { max-width: 65rem; }
+  &__documents {
+    @media (max-width: $tablet) {
+      max-width: 65rem;
+    }
   }
 
   @media (max-width: $mobile) {
     padding: 7rem 0;
+  }
 
-    &__layout { gap: 4rem; }
+  &__layout {
+    @media (max-width: $mobile) {
+      gap: 4rem;
+    }
+  }
 
-    &__contacts {
+  &__contacts {
+    @media (max-width: $mobile) {
       grid-template-columns: minmax(0, 1fr);
       row-gap: 2.8rem;
     }
+  }
 
-    &__contact-email { font-size: 2.4rem; }
+  &__contact-email {
+    @media (max-width: $mobile) {
+      font-size: 2.4rem;
+    }
+  }
 
-    &__document-link { gap: 1.2rem; }
+  &__document-link {
+    @media (max-width: $mobile) {
+      gap: 1.2rem;
+    }
   }
 }
 </style>

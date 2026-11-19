@@ -79,7 +79,12 @@ function isOpen(index) {
                 <p v-if="typeof item.answer === 'string'">{{ item.answer }}</p>
                 <p v-else>
                   <template v-for="(part, partIndex) in item.answer" :key="partIndex">
-                    <a v-if="part.href" :href="part.href">{{ part.text }}</a>
+                    <a
+                      v-if="part.href"
+                      :href="part.href"
+                      :target="part.href === '#map' ? null : '_blank'"
+                      :rel="part.href === '#map' ? null : 'noopener noreferrer'"
+                    >{{ part.text }}</a>
                     <template v-else>{{ part.text }}</template>
                   </template>
                 </p>
@@ -201,8 +206,8 @@ function isOpen(index) {
     pointer-events: none;
   }
 
-  @media (max-width: $laptop) {
-    &__container {
+  &__container {
+    @media (max-width: $laptop) {
       width: 100%;
       min-width: 0;
       max-width: 100%;
@@ -213,29 +218,107 @@ function isOpen(index) {
 
   @media (max-width: $tablet) {
     padding-bottom: 11rem;
+  }
 
-    &__container { padding: 0 2.8rem; }
-    &__inner { padding-top: 9rem; }
-    &__content-wrap { gap: 4rem; }
-    &__accordion { padding: 0.4rem 2.8rem; }
-    &__question { font-size: 2rem; }
-    &__toggler { padding: 2rem 0; }
+  &__container {
+    @media (max-width: $tablet) {
+      padding: 0 2.8rem;
+    }
+  }
+
+  &__inner {
+    @media (max-width: $tablet) {
+      padding-top: 9rem;
+    }
+  }
+
+  &__content-wrap {
+    @media (max-width: $tablet) {
+      gap: 4rem;
+    }
+  }
+
+  &__accordion {
+    @media (max-width: $tablet) {
+      padding: 0.4rem 2.8rem;
+    }
+  }
+
+  &__question {
+    @media (max-width: $tablet) {
+      font-size: 2rem;
+    }
+  }
+
+  &__toggler {
+    @media (max-width: $tablet) {
+      padding: 2rem 0;
+    }
   }
 
   @media (max-width: $mobile) {
     padding-bottom: 9rem;
+  }
 
-    &__container { padding: 0 2rem; }
-    &__inner { padding-top: 7rem; }
-    &__content-wrap { gap: 3.2rem; }
-    &__accordion { padding: 0.4rem 1.8rem; border-radius: 1.6rem; }
-    &__question { font-size: 1.8rem; }
-    &__toggler { gap: 1.2rem; padding: 1.8rem 0; }
-    &__icon,
-    &__icon img { width: 3.2rem; height: 3.2rem; }
-    &__icon { flex-basis: 3.2rem; }
-    &__answer { padding-bottom: 1.8rem; font-size: 1.6rem; }
-    &__decor { width: 18rem; height: 18rem; }
+  &__container {
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
+  }
+
+  &__inner {
+    @media (max-width: $mobile) {
+      padding-top: 7rem;
+    }
+  }
+
+  &__content-wrap {
+    @media (max-width: $mobile) {
+      gap: 3.2rem;
+    }
+  }
+
+  &__accordion {
+    @media (max-width: $mobile) {
+      padding: 0.4rem 1.8rem; border-radius: 1.6rem;
+    }
+  }
+
+  &__question {
+    @media (max-width: $mobile) {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__toggler {
+    @media (max-width: $mobile) {
+      gap: 1.2rem; padding: 1.8rem 0;
+    }
+  }
+
+  &__icon,
+    &__icon img {
+    @media (max-width: $mobile) {
+      width: 3.2rem; height: 3.2rem;
+    }
+  }
+
+  &__icon {
+    @media (max-width: $mobile) {
+      flex-basis: 3.2rem;
+    }
+  }
+
+  &__answer {
+    @media (max-width: $mobile) {
+      padding-bottom: 1.8rem; font-size: 1.6rem;
+    }
+  }
+
+  &__decor {
+    @media (max-width: $mobile) {
+      width: 18rem; height: 18rem;
+    }
   }
 }
 </style>

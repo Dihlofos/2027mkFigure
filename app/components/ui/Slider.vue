@@ -164,6 +164,9 @@ const nextRef = ref(null)
     margin: 0 calc(-1 * var(--container-padding, 2rem));
     -webkit-overflow-scrolling: touch;
 
+    @media (max-width: $tablet) { --slider-slide-width: 30rem; }
+    @media (max-width: $mobile) { --slider-slide-width: 28rem; }
+
     // Скрываем скроллбар
     scrollbar-width: none;
     &::-webkit-scrollbar {
@@ -181,15 +184,4 @@ const nextRef = ref(null)
 // ═══════════════════════════════════════════
 // Адаптив через CSS (без JS)
 // ═══════════════════════════════════════════
-@media (max-width: $tablet) {
-  .slider {
-    --slider-slide-width: 30rem;
-  }
-}
-
-@media (max-width: $mobile) {
-  .slider {
-    --slider-slide-width: 28rem;
-  }
-}
 </style>

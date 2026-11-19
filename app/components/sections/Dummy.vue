@@ -227,27 +227,35 @@ const props = defineProps({
 
   &__mobile-decor { display: none; }
 
-  @media (max-width: $laptop) {
-    &__date {
+  &__date {
+    @media (max-width: $laptop) {
       width: auto;
       font-size: 2rem;
     }
+  }
 
-    &__main {
+  &__main {
+    @media (max-width: $laptop) {
       width: min(62%, 73.6rem);
     }
+  }
 
-    &__title {
+  &__title {
+    @media (max-width: $laptop) {
       font-size: clamp(5.6rem, 6vw, 7.6rem);
     }
+  }
 
-    &__portal {
+  &__portal {
+    @media (max-width: $laptop) {
       flex-basis: 46%;
       padding: 2rem 2.8rem;
       font-size: 1.8rem;
     }
+  }
 
-    &__description {
+  &__description {
+    @media (max-width: $laptop) {
       flex-basis: 44%;
       font-size: 1.8rem;
     }
@@ -255,28 +263,50 @@ const props = defineProps({
 
   @media (max-width: $tablet) {
     --dummy-stage-shift: 0rem;
-
     min-height: max(100vh, 73.5rem);
+    --dummy-reference-height: 76rem;
+  }
 
-    &__logos {
+  @media (min-width: $tablet) and (max-width: $laptop) {
+    --dummy-reference-height: 95rem;
+  }
+
+  &__logos {
+    @media (max-width: $tablet) {
       width: 100%;
       max-width: 50rem;
       justify-content: flex-start;
       gap: 2.4rem;
       margin-top: 6rem;
     }
+  }
 
-    &__logos .logos__item { flex: 0 0 auto; }
+  &__logos .logos__item {
+    @media (max-width: $tablet) {
+      flex: 0 0 auto;
+    }
+  }
 
-    &__logos .logos__image {
+  &__logos .logos__image {
+    @media (max-width: $tablet) {
       width: auto;
       height: 2.4rem;
       max-width: none;
     }
+  }
 
-    &__stage { margin-top: 3.8rem; }
+  &__stage {
+    @media (max-width: $tablet) {
+      margin-top: 3.8rem;
+    }
 
-    &__date {
+    @media (min-width: $tablet) and (min-height: 47.5rem) {
+      transform: translateY(var(--dummy-stage-shift));
+    }
+  }
+
+  &__date {
+    @media (max-width: $tablet) {
       position: static;
       width: auto;
       margin: 2.8rem 0 1rem;
@@ -284,47 +314,67 @@ const props = defineProps({
       text-align: left;
       white-space: nowrap;
     }
+  }
 
-    &__main {
+  &__main {
+    @media (max-width: $tablet) {
       width: min(100%, 64rem);
       margin-top: 0;
     }
+  }
 
-    &__title {
+  &__title {
+    @media (max-width: $tablet) {
       margin-bottom: 0;
       font-size: clamp(3.6rem, 5.3vw, 4.8rem);
       letter-spacing: 0.124rem;
       line-height: 0.95;
     }
+  }
 
-    &__details {
+  &__details {
+    @media (max-width: $tablet) {
       align-items: flex-start;
       flex-direction: column;
       gap: 3rem;
       margin-top: 1.6rem;
       max-width: 50rem;
     }
+  }
 
-    &__description,
+  &__description,
     &__portal {
+    @media (max-width: $tablet) {
       flex: 0 1 auto;
       width: 100%;
       max-width: 50rem;
     }
+  }
 
-    &__description { font-size: 1.6rem; }
+  &__description {
+    @media (max-width: $tablet) {
+      font-size: 1.6rem;
+    }
+  }
 
-    &__portal {
+  &__portal {
+    @media (max-width: $tablet) {
       min-height: 0;
       padding: 1.6rem 2rem;
       border-radius: 2.2rem;
       font-size: 1.6rem;
     }
+  }
 
-    &__figure,
-    &__corner { display: none; }
+  &__figure,
+    &__corner {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
 
-    &__mobile-decor {
+  &__mobile-decor {
+    @media (max-width: $tablet) {
       position: absolute;
       z-index: 0;
       right: 0;
@@ -336,25 +386,11 @@ const props = defineProps({
     }
   }
 
-  @media (max-width: $mobile) {
-    &__details { margin-top: 1.6rem; }
+  &__details {
+    @media (max-width: $mobile) {
+      margin-top: 1.6rem;
+    }
   }
 }
 
-@media (min-width: $tablet) and (min-height: 47.5rem) {
-  .dummy__stage { transform: translateY(var(--dummy-stage-shift)); }
-}
-
-@media (min-width: $tablet) and (max-width: $laptop) {
-  .dummy {
-    --dummy-reference-height: 95rem;
-  }
-}
-
-@media (max-width: $tablet) {
-  .dummy {
-    --dummy-reference-height: 76rem;
-    --dummy-stage-shift: 0rem;
-  }
-}
 </style>

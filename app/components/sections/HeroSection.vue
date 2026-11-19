@@ -139,50 +139,77 @@ const props = defineProps({
     pointer-events: none;
   }
 
-  @media (max-width: $laptop) {
-    &__title { font-size: clamp(5.6rem, 6vw, 7.6rem); }
+  &__title {
+    @media (max-width: $laptop) {
+      font-size: clamp(5.6rem, 6vw, 7.6rem);
+    }
+  }
 
-    &__figure-wrap {
+  &__figure-wrap {
+    @media (max-width: $laptop) {
       right: -15rem;
       transform: scale(0.9);
       transform-origin: top right;
     }
   }
 
-  @media (max-width: $tablet) {
-    &__content { padding-top: 14rem; }
-    &__content { padding-bottom: 8rem; }
+  &__content {
+    @media (max-width: $tablet) {
+      padding-top: 14rem;
+    }
+  }
 
-    &__title {
+  &__content {
+    @media (max-width: $tablet) {
+      padding-bottom: 8rem;
+    }
+  }
+
+  &__title {
+    @media (max-width: $tablet) {
       width: min(100%, 64rem);
       font-size: clamp(3.6rem, 5.3vw, 4.8rem);
       letter-spacing: 0.124rem;
       line-height: 0.95;
     }
+  }
 
-    &__date {
+  &__date {
+    @media (max-width: $tablet) {
       margin: 2.8rem 0 1.6rem;
       font-size: 1.6rem;
     }
+  }
 
-    &__logos {
+  &__logos {
+    @media (max-width: $tablet) {
       width: 100%;
       max-width: 50rem;
       justify-content: flex-start;
       gap: 2.4rem;
       margin-top: 3.8rem;
     }
+  }
 
-    &__logos .logos__item { flex: 0 0 auto; }
+  &__logos .logos__item {
+    @media (max-width: $tablet) {
+      flex: 0 0 auto;
+    }
+  }
 
-    &__logos .logos__image {
+  &__logos .logos__image {
+    @media (max-width: $tablet) {
       width: auto;
       height: 2.4rem;
       max-width: none;
     }
+  }
 
-    &__figure-wrap,
-    &__corner { display: none; }
+  &__figure-wrap,
+    &__corner {
+    @media (max-width: $tablet) {
+      display: none;
+    }
   }
 }
 </style>

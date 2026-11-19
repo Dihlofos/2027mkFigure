@@ -203,22 +203,28 @@ const props = defineProps({
 
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;
+  }
 
-    &__container {
+  &__container {
+    @media (max-width: $tablet) {
       width: 100%;
       min-width: 0;
       max-width: 100%;
       padding: 0 2.8rem;
       box-sizing: border-box;
     }
+  }
 
-    &__cards {
+  &__cards {
+    @media (max-width: $tablet) {
       grid-template-columns: minmax(0, 1fr);
       justify-items: center;
       gap: 2.4rem;
     }
+  }
 
-    &__card {
+  &__card {
+    @media (max-width: $tablet) {
       width: 100%;
       max-width: 48rem;
     }
@@ -226,20 +232,38 @@ const props = defineProps({
 
   @media (max-width: $mobile) {
     padding: 7rem 0 9rem;
+  }
 
-    &__container { padding: 0 2rem; }
+  &__container {
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
+  }
 
-    &__card {
+  &__card {
+    @media (max-width: $mobile) {
       min-height: 58rem;
       padding: 1.2rem 1.2rem 2.4rem;
     }
+  }
 
-    &__name { font-size: 2.2rem; }
+  &__name {
+    @media (max-width: $mobile) {
+      font-size: 2.2rem;
+    }
+  }
 
-    &__date,
-    &__time { font-size: 1.6rem; }
+  &__date,
+    &__time {
+    @media (max-width: $mobile) {
+      font-size: 1.6rem;
+    }
+  }
 
-    &__time { padding: 0 1.2rem; }
+  &__time {
+    @media (max-width: $mobile) {
+      padding: 0 1.2rem;
+    }
   }
 }
 </style>

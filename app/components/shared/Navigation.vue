@@ -111,6 +111,7 @@ function closeMobile() {
       padding: 0;
       flex-shrink: 0;
       align-items: flex-start;
+      background: transparent;
     }
   }
 
