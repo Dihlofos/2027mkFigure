@@ -44,6 +44,15 @@ const props = defineProps({
   overflow: visible;
   background: $blue-50;
   overflow: hidden;
+
+  @media (max-width: $tablet) {
+    padding: 9rem 0 11rem;
+  }
+
+  @media (max-width: $mobile) {
+    padding: 7rem 0 5rem;
+  }
+
   &__container {
     position: relative;
     overflow: visible;
@@ -75,10 +84,7 @@ const props = defineProps({
       height: 64rem;
     }
     @media (max-width: $mobile) {
-      top: 45%;
-      right: -24rem;
-      width: 48rem;
-      height: 48rem;
+      display: none;
     }
   }
   &__content {
@@ -95,6 +101,10 @@ const props = defineProps({
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
+
+    @media (max-width: $mobile) {
+      gap: 3.6rem;
+    }
   }
   &__item {
     display: flex;
@@ -169,11 +179,6 @@ const props = defineProps({
       border-radius: 2.8rem;
     }
   }
-  @media (max-width: $tablet) {
-    padding: 9rem 0 11rem;
-  }
-  @media (max-width: $mobile) {
-    padding: 7rem 0 9rem;
-  }
+
 }
 </style>

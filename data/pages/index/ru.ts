@@ -3,10 +3,10 @@ export default {
     title: 'Мастер-классы от известных фигуристов',
     date: '5 декабря 2026 — 28 февраля 2027',
     logos: [
-      { src: '/images/logos/major.svg', alt: 'Проект Мэра Москвы', width: 90, height: 44 },
-      { src: '/images/logos/winter.svg', alt: 'Зима в Москве', width: 111, height: 44 },
-      { src: '/images/logos/dep.svg', alt: 'Департамент спорта города Москвы', width: 128, height: 44 },
-      { src: '/images/logos/mossport.svg', alt: 'Московский спорт', width: 146, height: 44 },
+      { src: '/images/logos/major.svg', alt: 'Проект Мэра Москвы', href: 'https://www.mos.ru/', width: 90, height: 44 },
+      { src: '/images/logos/winter.svg', alt: 'Зима в Москве', href: 'https://zima.mos.ru/', width: 111, height: 44 },
+      { src: '/images/logos/dep.svg', alt: 'Департамент спорта города Москвы', href: 'https://www.mos.ru/moskomsport/', width: 128, height: 44 },
+      { src: '/images/logos/mossport.svg', alt: 'Московский спорт', href: 'https://sport.mos.ru/', width: 146, height: 44 },
     ],
     entry: {
       label: 'Вход бесплатный',
@@ -23,10 +23,10 @@ export default {
     title: 'Мастер-классы от известных фигуристов',
     date: '5 декабря 2026 — 28 февраля 2027',
     logos: [
-      { src: '/images/logos/major.svg', alt: 'Проект Мэра Москвы', width: 90, height: 44 },
-      { src: '/images/logos/winter.svg', alt: 'Зима в Москве', width: 111, height: 44 },
-      { src: '/images/logos/dep.svg', alt: 'Департамент спорта города Москвы', width: 128, height: 44 },
-      { src: '/images/logos/mossport.svg', alt: 'Московский спорт', width: 146, height: 44 },
+      { src: '/images/logos/major.svg', alt: 'Проект Мэра Москвы', href: 'https://www.mos.ru/', width: 90, height: 44 },
+      { src: '/images/logos/winter.svg', alt: 'Зима в Москве', href: 'https://zima.mos.ru/', width: 111, height: 44 },
+      { src: '/images/logos/dep.svg', alt: 'Департамент спорта города Москвы', href: 'https://www.mos.ru/moskomsport/', width: 128, height: 44 },
+      { src: '/images/logos/mossport.svg', alt: 'Московский спорт', href: 'https://sport.mos.ru/', width: 146, height: 44 },
     ],
     entry: {
       label: 'Вход бесплатный',
@@ -64,7 +64,7 @@ export default {
         photoAlt: 'Алина Загитова',
         date: '5 декабря',
         time: '14:00–15:00',
-        registrationHref: '#',
+        registrationHref: 'https://master-klassy-so-zvezdami.timepad.ru/event/4317104/',
       },
       {
         name: 'Мастер-класс с Евгенией Медведевой',
@@ -72,7 +72,7 @@ export default {
         photoAlt: 'Евгения Медведева',
         date: '6 декабря',
         time: '14:00–15:00',
-        registrationHref: '#',
+        registrationHref: 'https://master-klassy-so-zvezdami.timepad.ru/event/4317122/',
       },
       {
         name: 'Мастер-класс с Александрой Бойковой и Дмитрием Козловским',
@@ -80,7 +80,7 @@ export default {
         photoAlt: 'Александра Бойкова и Дмитрий Козловский',
         date: '26 декабря',
         time: '14:00–15:00',
-        registrationHref: '#',
+        registrationHref: 'https://master-klassy-so-zvezdami.timepad.ru/event/4317128/',
       },
     ],
   },
@@ -99,10 +99,10 @@ export default {
   organizers: {
     title: 'Организаторы',
     logos: [
-      { src: '/images/logos/major-white.svg', alt: 'Проект Мэра Москвы', width: 122, height: 60 },
-      { src: '/images/logos/winter-white.svg', alt: 'Зима в Москве', width: 126, height: 50 },
-      { src: '/images/logos/dep-white.svg', alt: 'Департамент спорта города Москвы', width: 174, height: 60 },
-      { src: '/images/logos/mossport-white.svg', alt: 'Московский спорт', width: 166, height: 50 },
+      { src: '/images/logos/major-white.svg', alt: 'Проект Мэра Москвы', href: 'https://www.mos.ru/', width: 122, height: 60 },
+      { src: '/images/logos/winter-white.svg', alt: 'Зима в Москве', href: 'https://zima.mos.ru/', width: 126, height: 50 },
+      { src: '/images/logos/dep-white.svg', alt: 'Департамент спорта города Москвы', href: 'https://www.mos.ru/moskomsport/', width: 174, height: 60 },
+      { src: '/images/logos/mossport-white.svg', alt: 'Московский спорт', href: 'https://sport.mos.ru/', width: 166, height: 50 },
     ],
   },
   faq: {

@@ -100,7 +100,7 @@ const props = defineProps({
     }
     @media (max-width: $mobile) {
       gap: 3.2rem;
-      padding-top: 7rem;
+      padding-top: 5rem;
     }
   }
   &__content {

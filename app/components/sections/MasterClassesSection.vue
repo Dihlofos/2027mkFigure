@@ -44,7 +44,12 @@ const props = defineProps({
               </div>
             </div>
 
-            <a class="master-classes__registration" :href="card.registrationHref">
+            <a
+              class="master-classes__registration"
+              :href="card.registrationHref"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               {{ props.registrationLabel }}
             </a>
           </article>

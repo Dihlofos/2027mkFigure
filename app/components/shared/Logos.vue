@@ -10,7 +10,13 @@ const props = defineProps({
 <template>
   <ul class="logos" :aria-label="props.label">
     <li v-for="logo in props.items" :key="logo.src" class="logos__item">
-      <a class="logos__link" href="#" :aria-label="logo.alt">
+      <a
+        class="logos__link"
+        :href="logo.href"
+        :aria-label="logo.alt"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <Image
           :src="logo.src"
           :alt="logo.alt"

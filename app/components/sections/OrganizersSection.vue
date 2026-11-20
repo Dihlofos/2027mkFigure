@@ -12,18 +12,22 @@ const props = defineProps({
   <section id="organizers" class="organizers" aria-labelledby="organizers-title">
     <Container wide class="organizers__container">
       <div class="organizers__content">
-        <Title id="organizers-title" tag="h2" pale>{{ props.title }}</Title>
+        <div class="organizers__heading">
+          <Title id="organizers-title" tag="h2" pale>{{ props.title }}</Title>
+        </div>
 
         <ul class="organizers__list" aria-label="Организации-организаторы">
           <li v-for="logo in props.logos" :key="logo.src" class="organizers__tile">
-            <Image
-              class="organizers__logo"
-              :src="logo.src"
-              :alt="logo.alt"
-              :width="logo.width"
-              :height="logo.height"
-              loading="lazy"
-            />
+            <a class="organizers__link" :href="logo.href" :aria-label="logo.alt" target="_blank" rel="noopener noreferrer">
+              <Image
+                class="organizers__logo"
+                :src="logo.src"
+                :alt="logo.alt"
+                :width="logo.width"
+                :height="logo.height"
+                loading="lazy"
+              />
+            </a>
           </li>
         </ul>
       </div>
@@ -44,10 +48,11 @@ const props = defineProps({
       box-sizing: border-box;
     }
     @media (max-width: $tablet) {
-      padding: 0 2.8rem;
-    }
-    @media (max-width: $mobile) {
-      padding: 0 2rem;
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      padding: 0;
+      box-sizing: border-box;
     }
   }
   &__content {
@@ -66,10 +71,23 @@ const props = defineProps({
     padding: 0;
     list-style: none;
     @media (max-width: $tablet) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      display: flex;
+      gap: 2rem;
+      padding: 0 2.8rem 0 0;
+      overflow-x: auto;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      -webkit-overflow-scrolling: touch;
     }
     @media (max-width: $mobile) {
-      grid-template-columns: minmax(0, 1fr);
+      gap: 1.6rem;
+      padding-right: 2rem;
+    }
+    &::-webkit-scrollbar {
+      @media (max-width: $tablet) {
+        display: none;
+      }
     }
   }
   &__tile {
@@ -85,11 +103,13 @@ const props = defineProps({
       height: 14rem;
       padding: 2rem;
       border-radius: 4rem;
+      flex: 0 0 min(32rem, 78vw);
     }
     @media (max-width: $mobile) {
       height: 12rem;
       padding: 2rem 3.6rem;
       border-radius: 3.2rem;
+      flex-basis: 21rem;
     }
   }
   &__logo {
@@ -98,6 +118,29 @@ const props = defineProps({
     max-width: 100%;
     max-height: 6rem;
     object-fit: contain;
+  }
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  &__heading {
+    @media (max-width: $tablet) {
+      padding: 0 2.8rem;
+    }
+    @media (max-width: $mobile) {
+      padding: 0 2rem;
+    }
+  }
+  &__tile:first-child {
+    @media (max-width: $tablet) {
+      margin-left: 2.8rem;
+    }
+    @media (max-width: $mobile) {
+      margin-left: 2rem;
+    }
   }
   @media (max-width: $tablet) {
     padding: 9rem 0 11rem;

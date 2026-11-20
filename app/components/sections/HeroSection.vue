@@ -91,7 +91,7 @@ const props = defineProps({
     @media (max-width: $mobile) {
       display: flex;
       flex-direction: column;
-      padding-top: 9rem;
+      padding-top: 2rem;
       padding-bottom: 10rem;
     }
   }
@@ -145,6 +145,8 @@ const props = defineProps({
     }
     @media (max-width: $mobile) {
       order: 0;
+      box-sizing: border-box;
+      padding-right: 6rem;
       margin-top: 0;
       margin-bottom: 2.8rem;
     }

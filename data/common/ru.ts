@@ -9,7 +9,7 @@ export default {
   navigation: {
     navItems: [
       { label: 'О событии', link: '#about-event' },
-      { label: 'Регистрация', link: '#registration' },
+      { label: 'Регистрация', link: '#master-classes' },
       { label: 'Расписание', link: '#schedule' },
       { label: 'Карта', link: '#map' },
       { label: 'Организаторы', link: '#organizers' },
