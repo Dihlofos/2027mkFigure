@@ -163,12 +163,13 @@ function isOpen(index) {
     }
   }
   &__toggler {
+    position: relative;
     display: flex;
     width: 100%;
+    min-height: 8.6rem;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
-    padding: 2.4rem 0;
+    box-sizing: border-box;
+    padding: 2.4rem 5.8rem 2.4rem 0;
     border: 0;
     background: transparent;
     color: $white;
@@ -179,14 +180,17 @@ function isOpen(index) {
       outline-offset: 0.2rem;
     }
     @media (max-width: $tablet) {
-      padding: 2rem 0;
+      min-height: 7.8rem;
+      padding: 2rem 5.8rem 2rem 0;
     }
     @media (max-width: $mobile) {
-      gap: 1.2rem;
-      padding: 1.8rem 0;
+      min-height: 6.8rem;
+      padding: 1.8rem 4.4rem 1.8rem 0;
     }
   }
   &__question {
+    display: block;
+    flex: 1 1 auto;
     max-width: 69rem;
     font-family: $finlandica-text;
     font-size: 2.4rem;
@@ -201,19 +205,19 @@ function isOpen(index) {
     }
   }
   &__icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
     display: inline-flex;
     width: 3.8rem;
     height: 3.8rem;
-    flex: 0 0 3.8rem;
     align-items: center;
     justify-content: center;
+    transform: translateY(-50%);
     img {
       display: block;
       width: 3.8rem;
       height: 3.8rem;
-    }
-    @media (max-width: $mobile) {
-      flex-basis: 3.2rem;
     }
   }
   &__answer {
@@ -223,7 +227,7 @@ function isOpen(index) {
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.3;
-    margin-top: -2.4rem;
+    margin-top: -2rem;
     p {
       margin: 0;
     }
@@ -233,6 +237,7 @@ function isOpen(index) {
       text-underline-offset: 0.2rem;
     }
     @media (max-width: $mobile) {
+      margin-top: -1.4rem;
       padding-bottom: 1.8rem;
       font-size: 1.6rem;
     }
