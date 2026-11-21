@@ -132,7 +132,7 @@ const props = defineProps({
       margin: 1.8rem 0;
     }
   }
-  &__logos {
+  .hero__logos {
     width: 58.7rem;
     max-width: 100%;
     margin-top: 3.6rem;
